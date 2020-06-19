@@ -13,6 +13,9 @@
           <a class="nav-link" href="{{ route('emails') }}">Gestión Correos</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link" href="{{ route('asesors') }}">Gestión Asesores</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link" href="{{ route('contracs') }}">Gestión Contratos</a>
         </li>
         <li class="nav-item">

@@ -8,8 +8,8 @@
           <form
             class="ui form"
             action="{{route('contractPay')}}"
-            method="POST"
-          >
+            id="contratoForm"
+            method="POST">
           {{ method_field('post') }}
           {{csrf_field()}}
             <input type="hidden" name="asesorId" id="asesorId" value="{{$_GET["asesor"]}}" />
@@ -20,7 +20,7 @@
                 onchange="contrato()"
                 class="form-control"
                 name="name"
-                id="nombre"
+                id="name"
                 placeholder="Nombre Completo del Titular"
               />
             </div>
@@ -30,7 +30,7 @@
                 type="text"
                 class="form-control"
                 name="addrees"
-                id="direccion"
+                id="addrees"
                 placeholder="Dirección"
               />
             </div>
@@ -40,7 +40,7 @@
                 type="text"
                 class="form-control"
                 name="city"
-                id="ciudad"
+                id="city"
                 placeholder="Ciudad"
               />
             </div>
@@ -50,7 +50,7 @@
                 type="text"
                 class="form-control"
                 name="numIdenficication"
-                id="noIdentificacion"
+                id="numIdenficication"
                 placeholder="no Identificación"
               />
             </div>
@@ -60,7 +60,7 @@
                 type="text"
                 class="form-control"
                 name="phone"
-                id="telefono"
+                id="phone"
                 placeholder="Telefono"
               />
             </div>
@@ -118,7 +118,7 @@
                 </div>
               </div>
               <textarea name="contract" style="display: none;" id="contract"></textarea>
-            <br />
+            <br>
             <div class="form-check">
               <input
                 class="form-check-input"

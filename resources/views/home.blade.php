@@ -39,18 +39,5 @@
     </div>
   </div>
 </div>
-<script type="text/javascript">
-  $(document).ready(function() {
-    let alerta = $(".close").length;
-    if (alerta == 1) {
-      console.log("alerta1", alerta);
-    } else {
-      setTimeout(function () {
-        $(".alert-success").fadeOut(1500);
-      }, 3000);
-      console.log("alerta2", alerta);
-    }
-  });
-</script>
 @include('layouts.fotter')
 @endsection

@@ -1,0 +1,136 @@
+@extends('layouts.app')
+
+@section('content')
+<div class="container">
+  <div class="row">
+    <div class="col-md-10 offset-md-1 formcontent">
+      <h1>Asesores</h1>
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+        Agregar Asesor
+      </button>
+      @if(Session::has('message'))
+      <div class="alert alert-success">
+        {!! Session::get('message') !!}
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      </div>
+    @endif
+      <div class="table-responsive">
+        <table class="table table-hover" id="tabla">
+          <thead>
+            <tr>
+              <th>Nombre Completo</th>
+              <th>N° Cedula</th>
+              <th>Correo</th>
+              <th>Telefono</th>
+              {{-- <th>Editar</th>
+              <th>Eliminar</th> --}}
+            </tr>
+            </thead>
+            <tbody>
+              @foreach ($asesores as $asesor)
+                <tr>
+                  <td>{{$asesor->name}}  {{$asesor->lastname}}</td>
+                  <td>{{$asesor->numIdentification}}</td>
+                  <td>{{$asesor->email}}</td>
+                  <td>{{$asesor->phone}}</td>
+                  {{-- <td><a href="{{ route('editAsesor',$asesor->id) }}">Editar</a></td>
+                  <td><a href="{{ route('deleteAsesor',$asesor->id) }}">Borrar</a></td> --}}
+                </tr>
+              @endforeach
+            </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Crear Asesor</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="{{ route('asesorStore') }}" id="formAsesor">
+          @csrf
+          <div class="form-group row">
+              <label for="name" class="col-md-12 col-form-label">Nombres</label>
+              <div class="col-md-12">
+                  <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                  @error('name')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
+              </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="lastname" class="col-md-12 col-form-label">Apellidos</label>
+            <div class="col-md-12">
+                <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
+                @error('lastname')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="numIdentification" class="col-md-12 col-form-label">Numero de identificación</label>
+            <div class="col-md-12">
+                <input id="numIdentification" type="text" class="form-control @error('numIdentification') is-invalid @enderror" name="numIdentification" value="{{ old('numIdentification') }}" required autocomplete="numIdentification" autofocus>
+                @error('numIdentification')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+          </div>
+
+          <div class="form-group row">
+              <label for="email" class="col-md-12 col-form-label">Correo Electronico</label>
+
+              <div class="col-md-12">
+                  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+
+                  @error('email')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
+              </div>
+          </div>
+          <div class="form-group row">
+              <label for="phone" class="col-md-12 col-form-label">Numero de Telefono</label>
+
+              <div class="col-md-12">
+                  <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
+
+                  @error('phone')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
+              </div>
+          </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+      </form>
+
+      </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+@include('layouts.fotter')
+@endsection

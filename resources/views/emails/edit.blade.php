@@ -3,11 +3,11 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <form  action="{{route('updatePlantilla',$templateEmail->id)}}" method="POST" enctype="multipart/form-data">
+        <form  action="{{route('updatePlantilla',$templateEmail->id)}}" id="formEmails" method="POST" enctype="multipart/form-data">
           {{csrf_field()}}
           {{ method_field('put') }}
           <div class="form-group">
-            <label for="title">Titulo</label>
+            <label for="title">Titulos</label>
             <input type="text" value="{{$templateEmail->title}}" class="form-control" id="title" name="title">
           </div>
           <div class="form-group">

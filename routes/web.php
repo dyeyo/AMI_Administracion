@@ -2,32 +2,44 @@
 
 use Illuminate\Routing\RouteGroup;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
-    return view('welcome');
+  if (Auth::check()) {
+    return redirect('/home');
+  } else{
+    return view('auth.login');
+  }
 });
 
 Route::get('/contrato', 'ContractController@contract')->name('contract');
-
 Route::post('/contrato_pago', 'ContractController@contractPay')->name('contractPay');
 
 Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
   Route::get('/home', 'HomeController@index')->name('home');
   Route::post('/envio_pago', 'HomeController@sendinfopay')->name('sendinfopay');
-  //EMIALS
-  Route::get('/correos', 'EmailsController@index')->name('emails');
-  Route::get('/editar_plantilla/{id}', 'EmailsController@editPlantilla')->name('editPlantilla');
-  Route::put('/actualziar_plantilla/{id}', 'EmailsController@updatePlantilla')->name('updatePlantilla');
 
-  //CLIENTES
-  Route::put('/pago/{id}', 'HomeController@paySuccess')->name('paySuccess');
-
-  //CONTRATOS
-  Route::get('/contratos', 'ContractController@index')->name('contracs');
-  Route::post('/contratos/crear', 'ContractController@store')->name('contracsStore');
-  Route::get('/contrato/{id}', 'ContractController@editContract')->name('editContract');
-  Route::put('/contrato/editar/{id}', 'ContractController@updateContract')->name('updateContract');
+  Route::group(['middleware' => ['admin']], function () {
+    //EMIALS
+    Route::get('/correos', 'EmailsController@index')->name('emails');
+    Route::get('/editar_plantilla/{id}', 'EmailsController@editPlantilla')->name('editPlantilla');
+    Route::put('/actualziar_plantilla/{id}', 'EmailsController@updatePlantilla')->name('updatePlantilla');
+    //CONTRATOS
+    Route::get('/contratos', 'ContractController@index')->name('contracs');
+    Route::post('/contratos/crear', 'ContractController@store')->name('contracsStore');
+    Route::get('/contrato/{id}', 'ContractController@editContract')->name('editContract');
+    Route::put('/contrato/editar/{id}', 'ContractController@updateContract')->name('updateContract');
+    Route::delete('/contrato/{id}', 'ContractController@delete')->name('deleteContract');
+    //CLIENTES
+    Route::put('/pago/{id}', 'HomeController@paySuccess')->name('paySuccess');
+    //ASESOR
+    Route::get('/asesores', 'AsesorController@index')->name('asesors');
+    Route::post('/asesor/crear', 'AsesorController@store')->name('asesorStore');
+    Route::get('/asesor/{id}', 'AsesorController@editAsesor')->name('editAsesor');
+    Route::put('/asesor/editar/{id}', 'AsesorController@updateAsesor')->name('updateAsesor');
+    Route::delete('/asesor/{id}', 'AsesorController@delete')->name('deleteAsesor');
+  });
 
 });
 

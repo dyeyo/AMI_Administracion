@@ -46,13 +46,13 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Crear Contrato</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form action="{{route('contracsStore')}}" method="POST">
+        <form action="{{route('contracsStore')}}" method="POST" id="contrato">
           {{csrf_field()}}
           <div class="form-group">
             <label for="title">Titulo</label>
@@ -76,5 +76,6 @@
     </div>
   </div>
 </div>
+
 @include('layouts.fotter')
 @endsection

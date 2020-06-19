@@ -21,9 +21,6 @@
 <body>
     <div id="app">
     @guest
-      <li class="nav-item">
-        <a class="nav-link" href="{{ route('login') }}">Inicio de Sesion</a>
-      </li>
     @else
     @include('layouts.nav')
 

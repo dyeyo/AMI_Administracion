@@ -2,23 +2,79 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-10 offset-md-1 formcontent">
-          <h1>Contratos Registrados</h1>
+          <h1>Clientes Matriculados</h1>
           <div class="table-responsive">
             <table class="table table-hover" id="tabla">
                 <thead>
                 <tr>
                     <th>Nombre completo</th>
                     <th>Numero de ID</th>
+                    <th>Ciudad</th>
                     <th>Dirección</th>
                     <th>Telefono</th>
-                    <th>Ciudad</th>
-                    <th>email</th>
-                    <th>asesor</th>
-                    <th>fecha de contrato</th>
+                    <th>Correo</th>
+                    <th>Asesor</th>
+                    <th>Fecha de contrato</th>
                 </tr>
                 </thead>
                 <tbody>
+                  @foreach ($clientesPaySuccess as $client)
+                    <tr>
+                      <td>{{$client->name}}</td>
+                      <td>{{$client->numIdenficication}}</td>
+                      <td>{{$client->city}}</td>
+                      <td>{{$client->addrees}}</td>
+                      <td>{{$client->phone}}</td>
+                      <td>{{$client->email}}</td>
+                      <td>{{$client->asesor->name}}</td>
+                      <td>{{ Carbon\Carbon::parse($client->created_at)->format('d-m-Y') }}</td>
+                    </tr>
+                  @endforeach
 
+                </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10 offset-md-1 formcontent">
+          <h1>Clientes Pendientes Pago</h1>
+          <div class="table-responsive">
+            <table class="table table-hover" id="tabla">
+                <thead>
+                <tr>
+                    <th>Nombre completo</th>
+                    <th>Numero de ID</th>
+                    <th>Ciudad</th>
+                    <th>Dirección</th>
+                    <th>Telefono</th>
+                    <th>Correo</th>
+                    <th>Asesor</th>
+                    <th>Pagado</th>
+                    <th>Fecha de contrato</th>
+                </tr>
+                </thead>
+                <tbody>
+                  @foreach ($clientesPayPending as $client)
+                    <tr>
+                      <td>{{$client->name}}</td>
+                      <td>{{$client->numIdenficication}}</td>
+                      <td>{{$client->city}}</td>
+                      <td>{{$client->addrees}}</td>
+                      <td>{{$client->phone}}</td>
+                      <td>{{$client->email}}</td>
+                      <td>{{$client->asesor->name}}</td>
+                      <td>
+                        <form action="{{ route('paySuccess',$client->id) }}" method="POST">
+                          {{csrf_field()}}
+                          {{ method_field('put') }}
+                          <input type="hidden" name="pay" value="1">
+                          <button type="submit" class="btn btn-success">Matriculado</button>
+                        </form>
+                      <td>{{ Carbon\Carbon::parse($client->created_at)->format('d-m-Y') }}</td>
+                    </tr>
+                  @endforeach
                 </tbody>
             </table>
           </div>
@@ -65,3 +121,4 @@
       </div>
     </div>
   </div>
+  

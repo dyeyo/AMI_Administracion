@@ -7,9 +7,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/contrato_cuotas', 'ContractController@contractfees')->name('contractfees');
-Route::get('/contrato_contado', 'ContractController@contract')->name('contract');
-Route::get('/contrato1600', 'ContractController@contract1600')->name('contract1600');
+Route::get('/contrato', 'ContractController@contract')->name('contract');
 
 Route::post('/contrato_pago', 'ContractController@contractPay')->name('contractPay');
 
@@ -21,6 +19,16 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/correos', 'EmailsController@index')->name('emails');
   Route::get('/editar_plantilla/{id}', 'EmailsController@editPlantilla')->name('editPlantilla');
   Route::put('/actualziar_plantilla/{id}', 'EmailsController@updatePlantilla')->name('updatePlantilla');
+
+  //CLIENTES
+  Route::put('/pago/{id}', 'HomeController@paySuccess')->name('paySuccess');
+
+  //CONTRATOS
+  Route::get('/contratos', 'ContractController@index')->name('contracs');
+  Route::post('/contratos/crear', 'ContractController@store')->name('contracsStore');
+  Route::get('/contrato/{id}', 'ContractController@editContract')->name('editContract');
+  Route::put('/contrato/editar/{id}', 'ContractController@updateContract')->name('updateContract');
+
 });
 
 

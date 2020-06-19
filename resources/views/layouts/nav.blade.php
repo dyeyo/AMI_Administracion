@@ -10,7 +10,10 @@
           <a class="nav-link" href="{{ route('home') }}">Inicio <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('emails') }}">Gestiónar Correos</a>
+          <a class="nav-link" href="{{ route('emails') }}">Gestión Correos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ route('contracs') }}">Gestión Contratos</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="{{ route('logout') }}"

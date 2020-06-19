@@ -17,8 +17,9 @@ class Sendemailpay extends Mailable
     public function build(Request $request)
     {
         $student = $request->all();
+        $idContrato = $request->tipoContrato;
         $idAsesor = Auth()->user()->id;
         $templateEmails = TemplateEmail::where('type',1)->get();
-        return $this->view('emails.pay',compact('student','idAsesor','templateEmails'));
+        return $this->view('emails.pay',compact('student','idAsesor','templateEmails','idContrato'));
     }
 }

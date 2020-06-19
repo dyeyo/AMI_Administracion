@@ -21,7 +21,10 @@
             </li>
           @else
             <li class="nav-item">
-              <a class="nav-link active" data-toggle="tab" href="#tabs-2" role="tab">Registrar</a>
+              <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">Lista de mis Clientes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">Registrar</a>
             </li>
           @endif
         </ul>

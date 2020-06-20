@@ -103,9 +103,9 @@
               <label>Tipo de Contrato</label>
               <select class="form-control" name="tipoContrato" id="tipoContrato">
                 <option value="">Debes seleccionar una opción</option>
-                <option value="6">Cuotas</option>
-                <option value="12">Contado</option>
-                <option value="24">Contado 1600</option>
+                @foreach ($contracts as $contract)
+                  <option value="{{$contract->id}}">{{$contract->title}}</option>
+                @endforeach
               </select>
             </div>
             <div class="form-group">

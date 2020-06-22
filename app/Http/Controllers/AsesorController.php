@@ -30,19 +30,21 @@ class AsesorController extends Controller
     return redirect()->route('asesors');
   }
 
-  public function editContract(Request $request, $id)
+  public function editAsesor(Request $request, $id)
   {
-    $contract = User::find($id);
-    return view('asesores.edit',compact('contract'));
+    $asesor = User::find($id);
+    return view('asesores.edit',compact('asesor'));
   }
 
-  public function updateContract(Request $request, $id)
+  public function updateAsesor(Request $request, $id)
   {
-    $contract = User::find($id);
-    $contract->title = $request->title;
-    $contract->firstText = $request->firstText;
-    $contract->secondText = $request->secondText;
-    $contract->save();
+    $asesor = User::find($id);
+    $asesor->name = $request->name;
+    $asesor->email = $request->email;
+    $asesor->numIdentification = $request->numIdentification;
+    $asesor->lastname = $request->lastname;
+    $asesor->phone = $request->phone;
+    $asesor->save();
     Session::flash('message', 'Contrato editado con exito');
     return redirect()->route('asesors');
   }

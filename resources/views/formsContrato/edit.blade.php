@@ -1,28 +1,46 @@
 @extends('layouts.app')
 @section('content')
-  <div class="container">
+<div class="page-wrapper">
+  <div class="container-fluid">
+    <div class="row page-titles">
+      <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">Bienvendio</h4>
+      </div>
+      <div class="col-md-7 align-self-center text-right">
+        <div class="d-flex justify-content-end align-items-center">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/home">Inicio</a></li>
+              <li class="breadcrumb-item"><a href="/contratos">Gestion de Contratos</a></li>
+              <li class="breadcrumb-item activate"><a href="#">Editar Correo</a></li>
+            </ol>
+        </div>
+      </div>
+    </div>
     <div class="row">
       <div class="col-md-12">
-        <form action="{{route('updateContract',$contract->id)}}" method="POST" id="contratoEdit">
-          {{csrf_field()}}
-          {{ method_field('put') }}
-          <div class="form-group">
-            <label for="title">Titulo</label>
-            <input type="text" class="form-control" value="{{$contract->title}}" id="title" name="title" placeholder="Titulo del contrato">
+        <div class="card">
+          <div class="card-body">
+            <form action="{{route('updateContract',$contract->id)}}" method="POST" id="contratoEdit">
+              {{csrf_field()}}
+              {{ method_field('put') }}
+              <div class="form-group">
+                <label for="title">Titulo</label>
+                <input type="text" class="form-control" value="{{$contract->title}}" id="title" name="title" placeholder="Titulo del contrato">
+              </div>
+              <div class="form-group">
+                <label for="firstText">Texto Principal</label>
+                <textarea name="firstText" class="form-control" id="firstText" style="resize: none" cols="30" rows="10">{{$contract->firstText}}</textarea>
+              </div>
+              <div class="form-group">
+                <label for="secondText">Texto Secundario</label>
+                <textarea name="secondText" class="form-control" id="secondText" style="resize: none" cols="30" rows="10">{{$contract->secondText}}</textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Editar Contrato</button>
+            </form>
           </div>
-          <div class="form-group">
-            <label for="firstText">Texto Principal</label>
-            <textarea name="firstText" class="form-control" id="firstText" style="resize: none" cols="30" rows="10">{{$contract->firstText}}</textarea>
-          </div>
-          <div class="form-group">
-            <label for="secondText">Texto Secundario</label>
-            <textarea name="secondText" class="form-control" id="secondText" style="resize: none" cols="30" rows="10">{{$contract->secondText}}</textarea>
-          </div>
-          <button type="submit" class="btn btn-primary">Editar Contrato</button>
-        </form>
+        </div>
       </div>
     </div>
   </div>
-  <br>
-@include('layouts.fotter')
+</div>
 @endsection

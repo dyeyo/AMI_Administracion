@@ -1,42 +1,67 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-  <div class="row">
-    <div class="col-md-10 offset-md-1 formcontent">
-      <h1>Contratos</h1>
-      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
-        Agregar Contrato
-      </button>
-      @if(Session::has('message'))
-      <div class="alert alert-success">
-        {!! Session::get('message') !!}
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+<div class="page-wrapper">
+  <div class="container-fluid">
+    <div class="row page-titles">
+      <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">Bienvenido</h4>
       </div>
-    @endif
-      <div class="table-responsive">
-        <table class="table table-hover" id="tabla">
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Titulo</th>
-              <th>Texto Principal</th>
-              <th>Texto Secundario</th>
-              <th>Fecha de contrato</th>
-            </tr>
-            </thead>
-            <tbody>
-              @foreach ($contracts as $contract)
-                <tr>
-                  <td>{{$contract->id}}</td>
-                  <td>{{$contract->title}}</td>
-                  <td>{{Str::limit($contract->firstText),10}}</td>
-                  <td>{{Str::limit($contract->secondText),10}}</td>
-                  <td><a href="{{ route('editContract',$contract->id) }}">Editar</a></td>
-                </tr>
-              @endforeach
-            </tbody>
-        </table>
+      <div class="col-md-7 align-self-center text-right">
+        <div class="d-flex justify-content-end align-items-center">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/home">Inicia</a></li>
+            <li class="breadcrumb-item active">Contratos</li>
+          </ol>
+          <button type="button" class="btn btn-info d-none d-lg-block m-l-15" data-toggle="modal" data-target="#exampleModal">
+          <i class="fa fa-plus-circle"></i> Agregar Contrato</button>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="card">
+          <div class="card-body">
+            @if(Session::has('message'))
+              <div class="alert alert-success">
+                {!! Session::get('message') !!}
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              </div>
+            @endif
+            <div class="">
+              <table class="table" id="tabla">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Titulo</th>
+                    <th>Texto Principal</th>
+                    <th>Texto Secundario</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    @foreach ($contracts as $contract)
+                      <tr>
+                        <td>{{$contract->id}}</td>
+                        <td>{{$contract->title}}</td>
+                        <td>{{Str::limit($contract->firstText),10}}</td>
+                        <td>{{Str::limit($contract->secondText),10}}</td>
+                        <td><a href="{{ route('editContract',$contract->id) }}">Editar</a></td>
+                        <td>
+                          <form class="user"  action="{{route('deleteContract', $contract->id)}}" method="post">
+                            {{ method_field('delete') }}
+                            {{csrf_field()}}
+                            <a class="btn btn-btn-outline-light"  onclick="return confirm('¿Esta seguro de eliminar este registro?')"  type="submit">ELIMINAR</button>
+                          </form>
+                        </td>
+                      </tr>
+                    @endforeach
+                  </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -77,5 +102,4 @@
   </div>
 </div>
 
-@include('layouts.fotter')
 @endsection

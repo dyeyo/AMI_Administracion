@@ -52,22 +52,21 @@ class ContractController extends Controller
     Session::flash('message', 'Contrato editado con exito');
     return redirect()->route('contracs');
   }
-    // public function contract()
-    // {
-    //   return view('formsContrato.formContado');
-    // }
 
-    // public function contract1600()
-    // {
-    //   return view('formsContrato.form1600');
-    // }
-    public function contractPay(Request $request)
-    {
-      Clients::create($request->all())->save();
-      Mail::to($request->email)->send(new  SendMailContractClient());
-      Mail::to(env('EMAIL_ADMIN'))->send(new SendMailContractAdmin());
-      Session::flash('message', 'Correo electronico enviado con exito y Cliente registrado');
-      return redirect()->route('home');
-    }
+  public function contractPay(Request $request)
+  {
+    Clients::create($request->all())->save();
+    Mail::to($request->email)->send(new  SendMailContractClient());
+    Mail::to(env('EMAIL_ADMIN'))->send(new SendMailContractAdmin());
+    Session::flash('message', 'Correo electronico enviado con exito y Cliente registrado');
+    return redirect()->route('home');
+  }
+
+  public function destroy($id)
+  {
+    Contracts::find($id)->delete();
+    Session::flash('message', 'Contrato eliminada con exito');
+    return redirect()->route('contracs');
+  }
 
 }

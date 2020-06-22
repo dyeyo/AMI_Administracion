@@ -1,11 +1,11 @@
 <div class="tab-pane active" id="tabs-1" role="tabpanel">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-10 offset-md-1 formcontent">
+      <div class="col-md-12 formcontent">
         <h1>Mis Clientes Matriculados</h1>
         <div class="table-responsive">
-          <table class="table table-hover" id="tabla">
-              <thead>
+          <table class="table">
+            <thead>
               <tr>
                   <th>Nombre completo</th>
                   <th>Numero de ID</th>

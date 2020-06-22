@@ -1,24 +1,29 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- Styles -->
-    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+    <title>Lector AMI CRM</title>
+    <script src="https://kit.fontawesome.com/7e8f963e2a.js" crossorigin="anonymous"></script>
+    <link href="{{ asset('assets/css/morrisjs/morris.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/toast-master/css/jquery.toast.css') }}" rel="stylesheet">
+    <link href="{{ asset('dist/css/style.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('dist/css/pages/dashboard1.css')}}" rel="stylesheet">
 </head>
-<body>
+
+<body class="skin-default-dark fixed-layout">
+   <div class="preloader">
+      <div class="loader">
+        <div class="loader__figure"></div>
+        <p class="loader__label">Lector AMI</p>
+      </div>
+    </div>
+    <div id="main-wrapper">
     <div id="app">
     @guest
     @else
@@ -28,6 +33,8 @@
         <main class="py-4">
             @yield('content')
         </main>
+@include('layouts.fotter')
+
     </div>
   <script
     src="https://code.jquery.com/jquery-3.5.1.js"
@@ -39,8 +46,26 @@
   <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
   <script src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-  <script src="../assets/js/functions.js"></script>
-  <script src="../assets/js/validations.js"></script>
+  <!-- Bootstrap popper Core JavaScript -->
+  <script src="{{ asset('dist/js/perfect-scrollbar.jquery.min.js') }}"></script>
+  <!--Wave Effects -->
+  <script src="{{ asset('dist/js/waves.js') }}"></script>
+  <!--Menu sidebar -->
+  <script src="{{ asset('dist/js/sidebarmenu.js') }}"></script>
+  <!--Custom JavaScript -->
+  <script src="{{ asset('dist/js/custom.min.js') }}"></script>
+  <!-- ============================================================== -->
+  <!-- This page plugins -->
+  <!-- ============================================================== -->
+  <!--morris JavaScript -->
+  <script src="{{ asset('assets/js/raphael/raphael-min.js') }}"></script>
+  <script src="{{ asset('assets/js/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
+  <!-- Popup message jquery -->
+  <!-- jQuery peity -->
+  <script src="{{ asset('assets/js/peity/jquery.peity.min.js') }}"></script>
+  <script src="{{ asset('assets/js/peity/jquery.peity.init.js') }}"></script>
+  <script src="{{ asset('assets/js/functions.js')}}"></script>
+  <script src="{{ asset('assets/js/validations.js')}}"></script>
   <script type="text/javascript">
   $(document).ready(function() {
     $('#tabla').DataTable({ language:

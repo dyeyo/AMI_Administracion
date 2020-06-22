@@ -1,29 +1,66 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="{{ route('home') }}">LECTOR AMI</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="{{ route('home') }}">Inicio <span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('emails') }}">Gestión Correos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('asesors') }}">Gestión Asesores</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{ route('contracs') }}">Gestión Contratos</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('logout') }}"
-            onclick="event.preventDefault();  document.getElementById('logout-form').submit();">Salir</a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf</form>
-          </li>
-      </ul>
-    </div>
+<header class="topbar">
+  <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+      <div class="navbar-header">
+          <a class="navbar-brand" href="/home"><b>
+            <img src="" alt="" class="dark-logo" />
+            <img src="" alt="" class="light-logo" />
+           </b><span>
+           <img src="" alt="" class="dark-logo" />
+           <img src="" class="light-logo" alt="" /></span>
+         </a>
+      </div>
+      <div class="navbar-collapse">
+          <ul class="navbar-nav mr-auto">
+              <li class="nav-item"> <a class="nav-link nav-toggler d-block d-sm-none waves-effect waves-dark" href="javascript:void(0)"><i class="fas fa-bars"></i></a> </li>
+              <li class="nav-item"> <a class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark" href="javascript:void(0)"><i class="fas fa-bars"></i></a> </li>
+          </ul>
+          <ul class="navbar-nav my-lg-0">
+            <li class="nav-item right-side-toggle">
+              <a class="nav-link  waves-effect waves-light" href="{{ route('logout') }}">
+                <i class="fas fa-sign-out-alt"></i>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  {{ csrf_field() }}
+              </form>
+              </a>
+            </li>
+        </ul>
+      </div>
   </nav>
+</header>
+<aside class="left-sidebar">
+    <!-- Sidebar scroll-->
+    <div class="scroll-sidebar">
+        <!-- User Profile-->
+        <div class="user-profile">
+            <div class="user-pro-body">
+                <div>
+                  {{-- <img src=".jpg" alt="user-img" class="img-circle"></div> --}}
+                <div class="">
+                    <a href="" class=" u-dropdown link hide-menu">
+                      {{Auth()->user()->name}}
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+          <ul id="sidebarnav">
+            <li class="nav-small-cap">--- ADMINISTRACIÓN</li>
+            <li>
+              <a class="waves-effect waves-dark" href="{{ route('home') }}"><i class="fas fa-home"></i><span class="hide-menu">Dashboard</span></a>
+            </li>
+            <li>
+              <a class="waves-effect waves-dark" href="{{ route('emails') }}"><i class="fas fa-mail-bulk"></i><span class="hide-menu">Gestion de Correos</span></a>
+            </li>
+            <li>
+              <a class="waves-effect waves-dark" href="{{ route('asesors') }}"><i class="fas fa-users"></i></i><span class="hide-menu">Gestion de Asesores</span></a>
+            </li>
+            <li>
+              <a class="waves-effect waves-dark" href="{{ route('contracs') }}"><i class="fas fa-id-badge"></i><span class="hide-menu">Gestion Contratos</span></a>
+            </li>
+         </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+    </div>
+    <!-- End Sidebar scroll-->
+</aside>

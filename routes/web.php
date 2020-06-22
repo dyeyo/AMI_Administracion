@@ -25,12 +25,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/correos', 'EmailsController@index')->name('emails');
     Route::get('/editar_plantilla/{id}', 'EmailsController@editPlantilla')->name('editPlantilla');
     Route::put('/actualziar_plantilla/{id}', 'EmailsController@updatePlantilla')->name('updatePlantilla');
+    Route::delete('/correo/{id}', 'EmailsController@destroy')->name('deleteEmail');
+
     //CONTRATOS
     Route::get('/contratos', 'ContractController@index')->name('contracs');
     Route::post('/contratos/crear', 'ContractController@store')->name('contracsStore');
     Route::get('/contrato/{id}', 'ContractController@editContract')->name('editContract');
     Route::put('/contrato/editar/{id}', 'ContractController@updateContract')->name('updateContract');
-    Route::delete('/contrato/{id}', 'ContractController@delete')->name('deleteContract');
+    Route::delete('/contrato/{id}', 'ContractController@destroy')->name('deleteContract');
     //CLIENTES
     Route::put('/pago/{id}', 'HomeController@paySuccess')->name('paySuccess');
     //ASESOR

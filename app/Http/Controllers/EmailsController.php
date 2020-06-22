@@ -36,4 +36,11 @@ class EmailsController extends Controller
     Session::flash('message', 'Template actualizada con exito');
     return redirect()->route('emails');
   }
+
+  public function destroy($id)
+  {
+    TemplateEmail::find($id)->delete();
+    Session::flash('message', 'Template eliminado con exito');
+    return redirect()->route('emails');
+  }
 }

@@ -1,44 +1,59 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-  <div class="row">
-    <div class="col-md-10 offset-md-1 formcontent">
-      <h1>Asesores</h1>
-      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
-        Agregar Asesor
-      </button>
-      @if(Session::has('message'))
-      <div class="alert alert-success">
-        {!! Session::get('message') !!}
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+<div class="page-wrapper">
+  <div class="container-fluid">
+    <div class="row page-titles">
+      <div class="col-md-5 align-self-center">
+        <h4 class="text-themecolor">Bienvenido</h4>
       </div>
-    @endif
-      <div class="table-responsive">
-        <table class="table table-hover" id="tabla">
-          <thead>
-            <tr>
-              <th>Nombre Completo</th>
-              <th>N° Cedula</th>
-              <th>Correo</th>
-              <th>Telefono</th>
-              {{-- <th>Editar</th>
-              <th>Eliminar</th> --}}
-            </tr>
-            </thead>
-            <tbody>
-              @foreach ($asesores as $asesor)
-                <tr>
-                  <td>{{$asesor->name}}  {{$asesor->lastname}}</td>
-                  <td>{{$asesor->numIdentification}}</td>
-                  <td>{{$asesor->email}}</td>
-                  <td>{{$asesor->phone}}</td>
-                  {{-- <td><a href="{{ route('editAsesor',$asesor->id) }}">Editar</a></td>
-                  <td><a href="{{ route('deleteAsesor',$asesor->id) }}">Borrar</a></td> --}}
-                </tr>
-              @endforeach
-            </tbody>
-        </table>
+      <div class="col-md-7 align-self-center text-right">
+        <div class="d-flex justify-content-end align-items-center">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/home">Inicia</a></li>
+            <li class="breadcrumb-item active">Asesores</li>
+          </ol>
+          <button type="button" class="btn btn-info d-none d-lg-block m-l-15" data-toggle="modal" data-target="#exampleModal">
+          <i class="fa fa-plus-circle"></i> Agregar Asesor</button>
+        </div>
+      </div>
+  </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div class="card">
+          <div class="card-body">
+            @if(Session::has('message'))
+              <div class="alert alert-success">
+                {!! Session::get('message') !!}
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+              </div>
+            @endif
+            <div class="">
+              <table class="table" id="tabla">
+                <thead>
+                  <tr>
+                    <th>Nombre Completo</th>
+                    <th>N° Cedula</th>
+                    <th>Correo</th>
+                    <th>Telefono</th>
+                    <th>Editar</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    @foreach ($asesores as $asesor)
+                      <tr>
+                        <td>{{$asesor->name}}  {{$asesor->lastname}}</td>
+                        <td>{{$asesor->numIdentification}}</td>
+                        <td>{{$asesor->email}}</td>
+                        <td>{{$asesor->phone}}</td>
+                        <td><a href="{{ route('editAsesor',$asesor->id) }}">Editar</a></td>
+                      </tr>
+                    @endforeach
+                  </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

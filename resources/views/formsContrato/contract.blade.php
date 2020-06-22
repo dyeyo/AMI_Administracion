@@ -242,5 +242,4 @@
       </div>
     </div>
   </div>
-@include('layouts.fotter')
 @endsection

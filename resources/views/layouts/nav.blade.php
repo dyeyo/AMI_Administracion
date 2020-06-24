@@ -44,6 +44,7 @@
         </div>
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
+          @if (Auth()->user()->role == 1)
           <ul id="sidebarnav">
             <li class="nav-small-cap">--- ADMINISTRACIÓN</li>
             <li>
@@ -59,6 +60,14 @@
               <a class="waves-effect waves-dark" href="{{ route('contracs') }}"><i class="fas fa-id-badge"></i><span class="hide-menu">Gestion Contratos</span></a>
             </li>
          </ul>
+         @else
+           <ul id="sidebarnav">
+            <li class="nav-small-cap">--- ADMINISTRACIÓN</li>
+            <li>
+              <a class="waves-effect waves-dark" href="{{ route('home') }}"><i class="fas fa-home"></i><span class="hide-menu">Dashboard</span></a>
+            </li>
+           </ul>
+         @endif
         </nav>
         <!-- End Sidebar navigation -->
     </div>

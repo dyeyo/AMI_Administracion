@@ -19,7 +19,7 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
   Route::get('/home', 'HomeController@index')->name('home');
   Route::post('/envio_pago', 'HomeController@sendinfopay')->name('sendinfopay');
-
+  Route::get('/logout',  'Auth\LoginController@logout')->name('logout');
   Route::group(['middleware' => ['admin']], function () {
     //EMIALS
     Route::get('/correos', 'EmailsController@index')->name('emails');

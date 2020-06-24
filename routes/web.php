@@ -32,7 +32,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/contratos/crear', 'ContractController@store')->name('contracsStore');
     Route::get('/contrato/{id}', 'ContractController@editContract')->name('editContract');
     Route::put('/contrato/editar/{id}', 'ContractController@updateContract')->name('updateContract');
-    Route::delete('/contrato/{id}', 'ContractController@destroy')->name('deleteContract');
+    Route::delete('/contrato/elimar/{id}', 'ContractController@destroy')->name('deleteContract');
     //CLIENTES
     Route::put('/pago/{id}', 'HomeController@paySuccess')->name('paySuccess');
     //ASESOR

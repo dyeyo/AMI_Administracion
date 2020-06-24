@@ -6,6 +6,7 @@ use App\Clients;
 use App\Contracts;
 use App\Mail\MailSendmailPayAdmin;
 use App\Mail\Sendemailpay as MailSendemailpay;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
@@ -26,7 +27,20 @@ class HomeController extends Controller
                         ->where('asesorId',Auth()->user()->id)
                         ->get();
       $contracts = Contracts::all();
-      return view('home',compact('clientesPaySuccess','clientesPayPending','clientesAsesor','contracts'));
+      $clientesPaySuccessCount = Clients::with('asesor')->where('pay',1)->count();
+      $clientesPayPendingCount = Clients::with('asesor')->where('pay',null)->count();
+      $asesorCount  = User::where('role',2)->count();
+
+      $clientesPaySuccessAsesorCount = Clients::with('asesor')
+                                    ->where('pay',1)
+                                    ->where('asesorId',Auth()->user()->id)
+                                    ->count();
+      $clientesPayPendingAsesorCount = Clients::with('asesor')
+                                    ->where('pay',null)
+                                    ->where('asesorId',Auth()->user()->id)
+                                    ->count();
+      return view('home',compact('clientesPaySuccess','clientesPayPending','clientesAsesor','contracts',
+      'clientesPaySuccessCount','clientesPayPendingCount','asesorCount','clientesPaySuccessAsesorCount','clientesPayPendingAsesorCount'));
     }
 
     public function sendinfopay(Request $request)

@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('content')
 <div>
     <div class="container">
@@ -79,7 +80,7 @@
                   <div id='contenido'>
                     @foreach ($contract as $cnt)
                       <h4 class="textoContrato">TÉRMINOS Y CONDICIONES DE COMPRA: CONTRATO CELEBRADO EL {{$date_now}} ENTRE
-                       <h4  class="textoContrato" id="nombreContrato"> </h4> <h4 class="textoContrato">LECTOR AMI .</h4>
+                       <h4  class="textoContrato" id="nombreContrato"> </h4> <h4 class="textoContrato"> Y LECTOR AMI .</h4>
                       <p class="textoContrato">Por favor, lea los siguientes términos y condiciones de compra
                       con detenimiento (colectivamente, las &quot;Condiciones de Compra&quot;).
                       Estas Condiciones de Compra constituyen un acuerdo legal y

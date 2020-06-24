@@ -52,7 +52,7 @@
                           <form class="user"  action="{{route('deleteContract', $contract->id)}}" method="post">
                             {{ method_field('delete') }}
                             {{csrf_field()}}
-                            <a class="btn btn-btn-outline-light"  onclick="return confirm('¿Esta seguro de eliminar este registro?')"  type="submit">ELIMINAR</button>
+                            <button class="btn btn-btn-outline-light"  onclick="return confirm('¿Esta seguro de eliminar este registro?')"  type="submit">ELIMINAR</button>
                           </form>
                         </td>
                       </tr>

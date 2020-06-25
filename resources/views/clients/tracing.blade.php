@@ -86,14 +86,15 @@
         <form
           class="ui form"
           action="{{route('storeTracing')}}"
-          id="contratoForm"
+          id="seguimiento"
           method="POST">
           {{ method_field('post') }}
           {{csrf_field()}}
           <input type="hidden" name="clientId" id="clientId" value="{{$client->id}}" />
           <div class="form-group">
             <label>Tarea</label>
-            <select class="form-control" name="taskId">
+            <select class="form-control select2" style="width: 100%;" id="taskId" name="taskId">
+              <option value=""></option>
               @foreach ($tasks as $task)
                 <option value="{{$task->id}}">{{$task->name}}</option>
               @endforeach
@@ -101,7 +102,7 @@
           </div>
           <div class="form-group">
             <label>Observación</label>
-            <textarea class="form-control" style="resize: none" name="observation"></textarea>
+            <textarea class="form-control" style="resize: none" id="observation" name="observation"></textarea>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         <button type="submit" class="btn btn-primary">Guardar</button>

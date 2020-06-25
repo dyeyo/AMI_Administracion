@@ -11,6 +11,7 @@
     <title>Lector AMI CRM</title>
     <script src="https://kit.fontawesome.com/7e8f963e2a.js" crossorigin="anonymous"></script>
     <link href="{{ asset('assets/css/morrisjs/morris.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/toast-master/css/jquery.toast.css') }}" rel="stylesheet">
     <link href="{{ asset('dist/css/style.min.css')}}" rel="stylesheet">
     <link href="{{ asset('dist/css/pages/dashboard1.css')}}" rel="stylesheet">
@@ -65,7 +66,10 @@
   <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
   <script type="text/javascript">
   $(document).ready(function() {
-    $('#select2').select2();
+    $('.select2').select2({
+      allowClear: true,
+      placeholder: "Seleccione una opcion.."
+    });
     $('#tabla').DataTable({ language:
       {
         sProcessing: "Procesando...",

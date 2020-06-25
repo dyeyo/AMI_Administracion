@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\RegisterAsesorEmail;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class AsesorController extends Controller
 {
@@ -26,6 +28,7 @@ class AsesorController extends Controller
     $asesor->phone = $request->phone;
     $asesor->role = 2;
     $asesor->save();
+    Mail::to($request->email)->send(new RegisterAsesorEmail());
     Session::flash('message', 'Asesor creado con exito');
     return redirect()->route('asesors');
   }

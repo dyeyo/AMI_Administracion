@@ -33,6 +33,7 @@
                   <tr>
                     <th>#</th>
                     <th>Nombre</th>
+                    <th>Tipo de Tarea</th>
                     <th>Fecha de Creación</th>
                     <th>Editar</th>
                     <th>Borrar</th>
@@ -43,6 +44,7 @@
                       <tr>
                         <td>{{$task->id}}</td>
                         <td>{{$task->name}}</td>
+                        <td>{{$task->type == 1 ? 'PRIVADA' : 'PUBLICA'}}</td>
                         <td>{{ Carbon\Carbon::parse($task->created_at)->format('d-m-Y') }}</td>
                         <td><a  class="btn btn-warning" href="{{ route('editTask',$task->id) }}">Editar</a></td>
                         <td>
@@ -81,6 +83,16 @@
               <div class="col-md-12">
                   <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
               </div>
+          </div>
+          <div class="form-group row">
+            <div class="custom-control custom-radio">
+              <input type="radio" id="privado" value="1" checked name="type" class="custom-control-input">
+              <label class="custom-control-label"  for="privado">Tarea Privada</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" id="publico" value="2"  name="type" class="custom-control-input">
+              <label class="custom-control-label"  for="publico">Tarea Publica</label>
+            </div>
           </div>
       </div>
       <div class="modal-footer">

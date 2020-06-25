@@ -20,13 +20,23 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-body">
-            <form action="{{route('updateTask',$task->id)}}" method="POST" id="contratoEdit">
+            <form action="{{route('updateTask',$task->id)}}" method="POST" id="formTarea">
               {{csrf_field()}}
               {{ method_field('put') }}
               <div class="form-group row">
                 <label for="name" class="col-md-12 col-form-label">Nombre de la Tarea</label>
                 <div class="col-md-12">
                   <input value="{{$task->name}}" id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                </div>
+              </div>
+              <div class="form-group row">
+                <div class="custom-control custom-radio">
+                  <input type="radio" id="privado" value="1" {{$task->type == 1 ? 'checked' : ''}} name="type" class="custom-control-input">
+                  <label class="custom-control-label"  for="privado">Tarea Privada</label>
+                </div>
+                <div class="custom-control custom-radio ml-2">
+                  <input type="radio" id="publico" value="2" {{$task->type == 2 ? 'checked' : ''}} name="type" class="custom-control-input">
+                  <label class="custom-control-label"  for="publico">Tarea Publica</label>
                 </div>
               </div>
               <button type="submit" class="btn btn-primary">Editar Tarea</button>

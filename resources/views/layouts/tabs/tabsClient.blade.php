@@ -46,11 +46,14 @@
           {{csrf_field()}}
           <div class="alert alert-info" role="alert">
             <label>Información del Titular del Contrato</label>
-            <div class="form-group">
-              <input type="text" class="form-control" name="nombreEstudiante" id="nombreEstudiante" placeholder="Nombre completo titular del contrato" />
-            </div>
-            <div class="form-group">
-              <input type="email" class="form-control" name="emailEstudiante" id="emailEstudiante" placeholder="Correo electrónico titular del contrato" />
+            <div class="form-group col-md-12">
+              <select class="form-control datoCliente select2" onchange="dataClient()" style="width: 100%" id="select2" name="nombreEstudiante">
+                <option value=""></option>
+                @foreach ($clients as $client)
+                  <option value="{{$client->id}}">{{$client->name}}</option>
+                @endforeach
+              </select>
+            <input type="hidden" name="email" id="email"/>
             </div>
           </div>
           <div class="form-group">

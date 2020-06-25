@@ -92,7 +92,8 @@
             <div class="alert alert-info" role="alert">
               <label>Información del Titular del Contrato</label>
               <div class="form-group col-md-12">
-                <select class="form-control datoCliente" onchange="dataClient()" style="width: 100%" id="select2" name="nombreEstudiante">
+                <select class="form-control datoCliente select2" onchange="dataClient()" style="width: 100%" id="select2" name="nombreEstudiante">
+                  <option value=""></option>
                   @foreach ($clients as $client)
                     <option value="{{$client->id}}">{{$client->name}}</option>
                   @endforeach

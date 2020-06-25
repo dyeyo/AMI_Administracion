@@ -218,3 +218,39 @@ if ($("#formEmails").length > 0) {
     },
   });
 }
+
+if ($("#seguimiento").length > 0) {
+  $("#seguimiento").validate({
+    rules: {
+      taskId: {
+        required: true,
+      },
+      observation: {
+        required: true,
+      },
+    },
+    messages: {
+      taskId: {
+        required: "Este campo es obligatorio",
+      },
+      observation: {
+        required: "Este campo es obligatorio",
+      },
+    },
+  });
+}
+
+if ($("#formTarea").length > 0) {
+  $("#formTarea").validate({
+    rules: {
+      name: {
+        required: true,
+      },
+    },
+    messages: {
+      name: {
+        required: "Este campo es obligatorio",
+      },
+    },
+  });
+}

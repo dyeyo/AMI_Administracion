@@ -9227,7 +9227,7 @@ ol li {
   margin: 5px 0; }
 
 /*******************
-Padding margin property 
+Padding margin property
 *******************/
 html body .m-t-5 {
   margin-top: 5px; }
@@ -9778,7 +9778,7 @@ Notify
   top: -28px;
   right: -7px; }
   .notify .heartbit {
-    position: absolute;
+    position : absolute;
     top: -20px;
     right: -4px;
     height: 25px;
@@ -10416,7 +10416,7 @@ Form summernote
 .label {
   display: inline-block; }
 
-/*============================================================== 
+/*==============================================================
 Form addons page
 ============================================================== */
 /*Bootstrap select*/
@@ -10463,7 +10463,7 @@ Form addons page
 .input-form .btn {
   padding: 8px 12px; }
 
-/*============================================================== 
+/*==============================================================
 Form Material page
  ============================================================== */
 /*Material inputs*/
@@ -10505,13 +10505,13 @@ Form Material page
     border-bottom: 1px solid #fb9678; }
 
 /*******************
-Form validation error 
+Form validation error
 ******************/
 .error .help-block {
   color: #e46a76; }
 
 /*******************
-File Upload 
+File Upload
 ******************/
 .fileupload {
   overflow: hidden;
@@ -10865,7 +10865,7 @@ Table-Layout
       border-top-color: #ececf6; }
     .full-color-table.full-secondary-table thead th .alert-link {
       color: #686868; }
-  .full-color-table.full-secondary-table tbody td {
+  .full-color-table.full-secondary-table tbod y td {
     border: 0; }
   .full-color-table.full-secondary-table tr:hover {
     color: #818182;
@@ -10901,9 +10901,9 @@ Table-Layout
     background-color: #66dabe;
     border-color: #b8eee0;
     color: #fff; }
-    .full-color-table.full-success-table tr:hover hr {
+    .full-color-table.full-success-tabl e tr:hover hr {
       border-top-color: #a3e9d7; }
-    .full-color-table.full-success-table tr:hover .alert-link {
+    .full-color-table.full-success-table tr:hover  .alert-link {
       color: #003226; }
 
 .full-color-table.full-info-table {
@@ -11395,8 +11395,8 @@ flot-chart
     width: 100%;
     height: 100%; }
 
-/*============================================================== 
- For all pages 
+/*==============================================================
+ For all pages
  ============================================================== */
 #main-wrapper {
   width: 100%;
@@ -11806,7 +11806,7 @@ html body .navbar-dark .mailbox .message-center {
     padding: 14px; }
     .comment-widgets .comment-row:last-child {
       border-bottom: 0px; }
-    .comment-widgets .comment-row:hover, .comment-widgets .comment-row.active {
+    .comment-widgets .comment-row:hover, .comme nt-widgets .comm ent-row.active {
       background: #f8f9fa; }
 
 .comment-text {
@@ -12454,7 +12454,7 @@ html body .navbar-dark .mailbox .message-center {
   .news-slide .overlaybg img {
     width: 100%; }
 
-/*============================================================== 
+/*==============================================================
 widget-chart-page product review
  ============================================================== */
 .product-review {
@@ -12489,14 +12489,14 @@ Author: Wrappixel
 
 File: scss
 */
-/*============================================================== 
- For Desktop & above all (1650px) 
+/*==============================================================
+ For Desktop & above all (1650px)
  ============================================================== */
-/*============================================================== 
- For Laptop & above all (1370px) 
+/*==============================================================
+ For Laptop & above all (1370px)
  ============================================================== */
-/*-- ============================================================== 
- Small Desktop & above all (1024px) 
+/*-- ==============================================================
+ Small Desktop & above all (1024px)
  ============================================================== */
 @media (min-width: 1024px) {
   .page-wrapper, .footer {
@@ -12510,8 +12510,8 @@ File: scss
     .d-flex.no-block {
       display: flex !important; } }
 
-/*-- ============================================================== 
- Ipad & above all(768px) 
+/*-- ==============================================================
+ Ipad & above all(768px)
  ============================================================== */
 @media (min-width: 768px) {
   .navbar-header {
@@ -12525,8 +12525,8 @@ File: scss
     display: inline-block;
     line-height: 40px; } }
 
-/*-- ============================================================== 
- Phone and below ipad(767px) 
+/*-- ==============================================================
+ Phone and below ipad(767px)
  ============================================================== */
 @media (max-width: 767px) {
   .container-fluid {

@@ -1,12 +1,12 @@
 <header class="topbar">
   <nav class="navbar top-navbar navbar-expand-md navbar-dark">
       <div class="navbar-header">
+        <a class="navbar-brand" href="/home">
+          <b>
+              <img src="{{ asset('assets/img/logo.png') }}" alt="homepage" style="width: 95%" class="light-logo">
+          </b>
           <a class="navbar-brand" href="/home"><b>
-            <img src="" alt="" class="dark-logo" />
-            <img src="" alt="" class="light-logo" />
-           </b><span>
-           <img src="" alt="" class="dark-logo" />
-           <img src="" class="light-logo" alt="" /></span>
+           </b>
          </a>
       </div>
       <div class="navbar-collapse">
@@ -33,8 +33,6 @@
         <!-- User Profile-->
         <div class="user-profile">
             <div class="user-pro-body">
-                <div>
-                  {{-- <img src=".jpg" alt="user-img" class="img-circle"></div> --}}
                 <div class="">
                     <a href="{{ route('editAsesor',Auth()->user()->id) }}" class=" u-dropdown link hide-menu">
                       {{Auth()->user()->name}}
@@ -48,7 +46,7 @@
           <ul id="sidebarnav">
             <li class="nav-small-cap">--- ADMINISTRACIÓN</li>
             <li>
-              <a class="waves-effect waves-dark" href="{{ route('home') }}"><i class="fas fa-home"></i><span class="hide-menu">Dashboard</span></a>
+              <a class="waves-effect waves-dark" href="{{ route('home') }}"><i class="fas fa-home"></i><span class="hide-menu">Inicio</span></a>
             </li>
             <li>
               <a class="waves-effect waves-dark" href="{{ route('clients') }}"><i class="fas fa-user-graduate"></i><span class="hide-menu">Gestion de Clientes</span></a>
@@ -70,7 +68,7 @@
            <ul id="sidebarnav">
             <li class="nav-small-cap">--- ADMINISTRACIÓN</li>
             <li>
-              <a class="waves-effect waves-dark" href="{{ route('home') }}"><i class="fas fa-home"></i><span class="hide-menu">Dashboard</span></a>
+              <a class="waves-effect waves-dark" href="{{ route('home') }}"><i class="fas fa-home"></i><span class="hide-menu">Inicio</span></a>
             </li>
             <li>
               <a class="waves-effect waves-dark" href="{{ route('clients') }}"><i class="fas fa-user-graduate"></i><span class="hide-menu">Gestion de Clientes</span></a>

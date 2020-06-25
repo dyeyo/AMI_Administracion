@@ -13,7 +13,7 @@ class ClientsController extends Controller
 {
   public function index()
   {
-    $clients = Clients::with('asesor')->get();
+    $clients = Clients::with('asesor')->where('pay',1)->get();
     return view('clients.index',compact('clients'));
   }
 
@@ -42,7 +42,7 @@ class ClientsController extends Controller
   public function tracing($id)
   {
     $client = Clients::find($id);
-    $tasks = Task::all();
+    $tasks = Task::where('type',2)->get();
     $tracing = TracingClient::with('client','task')->where('clientId',$id)->get();
     return view('clients.tracing',compact('tracing','client','tasks'));
   }

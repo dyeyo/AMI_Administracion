@@ -53,6 +53,17 @@
           text-decoration: none;
           width: 70%;
           margin: auto;" href="http://127.0.0.1:8000/contrato?asesor={{$idAsesor}}&contrato={{$idContrato}}&idenClient={{encrypt($client->id)}}&name={{$client->name}}&addrees={{encrypt($client->addrees)}}&city={{encrypt($client->city)}}&numIdenficication={{encrypt($client->numIdenficication)}}&phone={{encrypt($client->phone)}}&email={{encrypt($client->email)}}" target="_blank">Diligenciar Contrato</a>
+        {{-- <a  style="
+          background: #ec1a24;
+          color: #fff;
+          display: block;
+          padding: 5px 25px;
+          text-align: center;
+          border-radius: 25px;
+          font-size: 24px;
+          text-decoration: none;
+          width: 70%;
+          margin: auto;" href=https://marketing.lectorami.co/crm/public/contrato?asesor={{$idAsesor}}&contrato={{$idContrato}}&idenClient={{encrypt($client->id)}}&name={{$client->name}}&addrees={{encrypt($client->addrees)}}&city={{encrypt($client->city)}}&numIdenficication={{encrypt($client->numIdenficication)}}&phone={{encrypt($client->phone)}}&email={{encrypt($client->email)}}" target="_blank">Diligenciar Contrato</a> --}}
 
         <h3 style="text-align: center;">
           Desde el siguiente link puedes hacer tu pago

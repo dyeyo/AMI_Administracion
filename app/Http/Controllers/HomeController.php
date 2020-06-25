@@ -48,8 +48,7 @@ class HomeController extends Controller
 
     public function sendinfopay(Request $request)
     {
-      dd($request->all());
-      Mail::to($request->emailEstudiante)->send(new MailSendemailpay());
+      Mail::to($request->email)->send(new MailSendemailpay());
       Mail::to(env('EMAIL_ADMIN'))->send(new MailSendmailPayAdmin());
       Session::flash('message', 'Correo electronico enviado con exito');
       return redirect()->route('home');

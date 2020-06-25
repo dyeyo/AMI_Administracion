@@ -55,10 +55,10 @@ class ContractController extends Controller
 
   public function contractPay(Request $request)
   {
-    Clients::create($request->all())->save();
+    Clients::find($request->clientId)->update($request->all());
     Mail::to($request->email)->send(new  SendMailContractClient());
     Mail::to(env('EMAIL_ADMIN'))->send(new SendMailContractAdmin());
-    Session::flash('message', 'Correo electronico enviado con exito y Cliente registrado');
+    Session::flash('message', 'Correo electronico enviado y Cliente registrado con exito');
     return redirect()->route('home');
   }
 

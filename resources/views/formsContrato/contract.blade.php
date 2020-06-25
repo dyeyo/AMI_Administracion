@@ -14,11 +14,12 @@
           {{ method_field('post') }}
           {{csrf_field()}}
           <input type="hidden" name="asesorId" id="asesorId" value="{{$_GET["asesor"]}}" />
+          <input type="hidden" name="clientId" id="clientId" value="{{decrypt($_GET["idenClient"])}}" />
           <div class="form-group">
             <label>Nombre Completo del Titular del Contrato</label>
             <input
               type="text"
-              onchange="contrato()"
+              value="{{$_GET["name"]}}"
               class="form-control"
               name="name"
               id="name"
@@ -29,6 +30,7 @@
             <label>Dirección</label>
             <input
               type="text"
+              value="{{decrypt($_GET["addrees"])}}"
               class="form-control"
               name="addrees"
               id="addrees"
@@ -39,6 +41,7 @@
             <label>Ciudad</label>
             <input
               type="text"
+              value="{{decrypt($_GET["city"])}}"
               class="form-control"
               name="city"
               id="city"
@@ -49,6 +52,7 @@
             <label>No de identificación</label>
             <input
               type="text"
+              value="{{decrypt($_GET["numIdenficication"])}}"
               class="form-control"
               name="numIdenficication"
               id="numIdenficication"
@@ -59,6 +63,7 @@
             <label>Teléfono</label>
             <input
               type="text"
+              value="{{decrypt($_GET["phone"])}}"
               class="form-control"
               name="phone"
               id="phone"
@@ -69,59 +74,16 @@
             <label>Correo Electrónico</label>
             <input
               type="email"
+              value="{{decrypt($_GET["email"])}}"
               class="form-control"
               name="email"
               id="email"
               placeholder="Correo Electronico"
             />
           </div>
-            <div id="contratocontenedor" style="display: none;">
-              <div id='contrato'>
-                <div id='contenido'>
-                  @foreach ($contract as $cnt)
-                    <h4 class="textoContrato">TÉRMINOS Y CONDICIONES DE COMPRA: CONTRATO CELEBRADO EL {{$date_now}} ENTRE
-                     <h4  class="textoContrato" id="nombreContrato"> </h4> <h4 class="textoContrato"> Y LECTOR AMI .</h4>
-                    <p class="textoContrato">Por favor, lea los siguientes términos y condiciones de compra
-                    con detenimiento (colectivamente, las &quot;Condiciones de Compra&quot;).
-                    Estas Condiciones de Compra constituyen un acuerdo legal y
-                    vinculante entre usted y Lector AMI (la &quot;Compañía&quot;) en relación
-                    con la compra de 1 Programa(s) lectura Inteligente por (12)
-                    mes(es) de Conexión (el &quot;Programa&quot;) ofrecido por la Compañía
-                    de acuerdo con el interés demostrado por Ud. en su visita a la
-                    página web. www.marketing.lectorami.co. Esta adquisición, está
-                    sujeta a los Términos de Servicio que se encuentran publicados
-                    en correo electrónico enviado por la Compañía, los cuales se
-                    consideran parte integrante del presente documento.</p>
-                    PAGO
-                    <p class="textoContrato">
-                      {{$cnt->firstText}}
-                    </p>
-                    RENOVACIÓN AUTOMÁTICA
-                    <p class="textoContrato">
-                      {{$cnt->secondText}}
-                    </p>
-                    <p class="textoContrato">Si usted tiene alguna pregunta o comentario sobre estas
-                    condiciones de Compra, por favor, no dude en contactar a un
-                    asesor de la Compañía a través de llamada telefónica al número
-                    3213202115 o a través de los medios de contacto publicados en
-                    la página web <a href="https://www.lectorami.com" target="_blank">www.lectorami.com</a>.</p>
-                    <p class="textoContrato">NOTIFICACIONES A LECTOR AMI ACADEMIA</p>
-                    <p class="textoContrato">Att: Asuntos Legales y Comerciales</p>
-                    <p class="textoContrato">CARRERA 11 # 22N-10 POPAYAN</p>
-                    <p class="textoContrato">Colombia</p>
-                    <p class="textoContrato">3213202115 LINEA NACIONAL Whatsapp</p>
-                    <p class="textoContrato">* El Suscriptor</p>
-                    <p class="textoContrato">LECTOR AMI La Compañía</p>
-
-                    <p class="textoContrato">*Por firma electrónica a las {{$date_now_hours}} </p>
-                  @endforeach
-                </div>
-              </div>
-            </div>
-            <textarea name="contract" style="display: none;" id="contract"></textarea>
-          <br>
           <div class="form-check">
             <input
+              onchange="contrato()"
               class="form-check-input"
               type="checkbox"
               value="SI"
@@ -159,6 +121,54 @@
               Término del Curso: Entiendo y acepto que estoy comprando un programa de doce (12) meses por cuotas; y después que termine la duración, el programa se renovará automáticamente cada mes para que pueda continuar disfrutando el servicio.
             </label>
           </div>
+          <br>
+          <div id="contratocontenedor" style="display: none;">
+            <div id='contrato' style="height: 300px !important;
+            border: 1px solid #ddd !important;
+            background: #f1f1f1 !important;
+            overflow-y: scroll !important;">
+              <div id='contenido' style="height: auto !important;">
+                @foreach ($contract as $cnt)
+                  <h4 class="textoContrato">TÉRMINOS Y CONDICIONES DE COMPRA: CONTRATO CELEBRADO EL {{$date_now}} ENTRE
+                   <h4  class="textoContrato" id="nombreContrato"> </h4> <h4 class="textoContrato"> Y LECTOR AMI .</h4>
+                  <p class="textoContrato">Por favor, lea los siguientes términos y condiciones de compra
+                  con detenimiento (colectivamente, las &quot;Condiciones de Compra&quot;).
+                  Estas Condiciones de Compra constituyen un acuerdo legal y
+                  vinculante entre usted y Lector AMI (la &quot;Compañía&quot;) en relación
+                  con la compra de 1 Programa(s) lectura Inteligente por (12)
+                  mes(es) de Conexión (el &quot;Programa&quot;) ofrecido por la Compañía
+                  de acuerdo con el interés demostrado por Ud. en su visita a la
+                  página web. www.marketing.lectorami.co. Esta adquisición, está
+                  sujeta a los Términos de Servicio que se encuentran publicados
+                  en correo electrónico enviado por la Compañía, los cuales se
+                  consideran parte integrante del presente documento.</p>
+                  PAGO
+                  <p class="textoContrato">
+                    {{$cnt->firstText}}
+                  </p>
+                  RENOVACIÓN AUTOMÁTICA
+                  <p class="textoContrato">
+                    {{$cnt->secondText}}
+                  </p>
+                  <p class="textoContrato">Si usted tiene alguna pregunta o comentario sobre estas
+                  condiciones de Compra, por favor, no dude en contactar a un
+                  asesor de la Compañía a través de llamada telefónica al número
+                  3213202115 o a través de los medios de contacto publicados en
+                  la página web <a href="https://www.lectorami.com" target="_blank">www.lectorami.com</a>.</p>
+                  <p class="textoContrato">NOTIFICACIONES A LECTOR AMI ACADEMIA</p>
+                  <p class="textoContrato">Att: Asuntos Legales y Comerciales</p>
+                  <p class="textoContrato">CARRERA 11 # 22N-10 POPAYAN</p>
+                  <p class="textoContrato">Colombia</p>
+                  <p class="textoContrato">3213202115 LINEA NACIONAL Whatsapp</p>
+                  <p class="textoContrato">* El Suscriptor</p>
+                  <p class="textoContrato">LECTOR AMI La Compañía</p>
+
+                  <p class="textoContrato">*Por firma electrónica a las {{$date_now_hours}} </p>
+                @endforeach
+              </div>
+            </div>
+          </div>
+          <textarea name="contract" style="display: none;" id="contract"></textarea>
           <button
             type="submit"
             id="pago"

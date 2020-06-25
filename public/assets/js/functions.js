@@ -7,9 +7,10 @@ function contrato() {
 }
 
 function dataClient() {
-  var correo = $(".datoCliente").val();
-  $.getJSON(("/loadClients", { id: correo }), function (data) {
-    console.log(data);
-    $("#email").val(data);
-  });
+  var datoCliente = $(".datoCliente").val();
+  if (datoCliente != 0) {
+    $.getJSON(route("loadClient", { id: datoCliente }), function (data) {
+      $("#email").val(data[0].email);
+    });
+  }
 }

@@ -97,8 +97,7 @@
                     <option value="{{$client->id}}">{{$client->name}}</option>
                   @endforeach
                 </select>
-              <input type="text" class="form-control" name="email" id="email" placeholder="Ingresa el link de pago" />
-
+              <input type="hidden" name="email" id="email"/>
               </div>
             </div>
             <div class="form-group">

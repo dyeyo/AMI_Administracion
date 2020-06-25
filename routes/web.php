@@ -23,7 +23,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/clientes',  'ClientsController@index')->name('clients');
   Route::get('/seguimiento/{id}',  'ClientsController@tracing')->name('tracing');
   Route::post('/seguimiento/crear',  'ClientsController@storeTracing')->name('storeTracing');
-  Route::get('/loadClients',  'HomeController@loadClient')->name('loadClient');
+  Route::get('/loadClients/{id}',  'HomeController@loadClient')->name('loadClient');
 
   Route::group(['middleware' => ['admin']], function () {
     //EMIALS

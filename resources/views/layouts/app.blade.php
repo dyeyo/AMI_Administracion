@@ -18,6 +18,8 @@
 </head>
 
 <body class="skin-default-dark fixed-layout">
+@routes
+
    <div class="preloader">
       <div class="loader">
         <div class="loader__figure"></div>

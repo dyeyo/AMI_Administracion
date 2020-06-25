@@ -39,13 +39,22 @@ class AsesorController extends Controller
   public function updateAsesor(Request $request, $id)
   {
     $asesor = User::find($id);
-    $asesor->name = $request->name;
-    $asesor->email = $request->email;
-    $asesor->numIdentification = $request->numIdentification;
-    $asesor->lastname = $request->lastname;
-    $asesor->phone = $request->phone;
-    $asesor->save();
-    Session::flash('message', 'Contrato editado con exito');
-    return redirect()->route('asesors');
+    if($request->password == ''){
+      $asesor->name = $request->name;
+      $asesor->email = $request->email;
+      $asesor->numIdentification = $request->numIdentification;
+      $asesor->lastname = $request->lastname;
+      $asesor->phone = $request->phone;
+    } else {
+      $asesor->name = $request->name;
+      $asesor->email = $request->email;
+      $asesor->numIdentification = $request->numIdentification;
+      $asesor->lastname = $request->lastname;
+      $asesor->phone = $request->phone;
+      $asesor->password = Hash::make($request->password);
+    }
+    $asesor->update();
+    Session::flash('message', 'Cliente actualizado con exito');
+    return redirect()->route('home');
   }
 }

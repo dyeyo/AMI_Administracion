@@ -85,6 +85,12 @@
                     @enderror
                 </div>
             </div>
+            <div class="form-group row">
+              <label for="password" class="col-md-12 col-form-label">Actualizar Contraseña</label>
+              <div class="col-md-12">
+                  <input id="password" type="text" class="form-control" name="password" value="{{ old('password') }}" autocomplete="password" autofocus>
+              </div>
+            </div>
               <button type="submit" class="btn btn-primary">Editar Contrato</button>
             </form>
           </div>

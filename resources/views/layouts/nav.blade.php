@@ -36,7 +36,7 @@
                 <div>
                   {{-- <img src=".jpg" alt="user-img" class="img-circle"></div> --}}
                 <div class="">
-                    <a href="" class=" u-dropdown link hide-menu">
+                    <a href="{{ route('editAsesor',Auth()->user()->id) }}" class=" u-dropdown link hide-menu">
                       {{Auth()->user()->name}}
                     </a>
                 </div>
@@ -51,6 +51,9 @@
               <a class="waves-effect waves-dark" href="{{ route('home') }}"><i class="fas fa-home"></i><span class="hide-menu">Dashboard</span></a>
             </li>
             <li>
+              <a class="waves-effect waves-dark" href="{{ route('clients') }}"><i class="fas fa-user-graduate"></i><span class="hide-menu">Gestion de Clientes</span></a>
+            </li>
+            <li>
               <a class="waves-effect waves-dark" href="{{ route('emails') }}"><i class="fas fa-mail-bulk"></i><span class="hide-menu">Gestion de Correos</span></a>
             </li>
             <li>
@@ -59,12 +62,18 @@
             <li>
               <a class="waves-effect waves-dark" href="{{ route('contracs') }}"><i class="fas fa-id-badge"></i><span class="hide-menu">Gestion Contratos</span></a>
             </li>
+            <li>
+              <a class="waves-effect waves-dark" href="{{ route('task') }}"><i class="fas fa-tags"></i><span class="hide-menu">Gestion Tareas</span></a>
+            </li>
          </ul>
          @else
            <ul id="sidebarnav">
             <li class="nav-small-cap">--- ADMINISTRACIÓN</li>
             <li>
               <a class="waves-effect waves-dark" href="{{ route('home') }}"><i class="fas fa-home"></i><span class="hide-menu">Dashboard</span></a>
+            </li>
+            <li>
+              <a class="waves-effect waves-dark" href="{{ route('clients') }}"><i class="fas fa-user-graduate"></i><span class="hide-menu">Gestion de Clientes</span></a>
             </li>
            </ul>
          @endif

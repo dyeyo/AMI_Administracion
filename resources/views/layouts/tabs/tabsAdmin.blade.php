@@ -87,15 +87,18 @@
         <div class="col-12 formcontent">
           <h1>Confirmación de Inscripción</h1>
           <form class="ui form" id="formularioInfoPago" action="{{route('sendinfopay')}}" method="POST">
-          {{ method_field('post') }}
-                  {{csrf_field()}}
+            {{ method_field('post') }}
+            {{csrf_field()}}
             <div class="alert alert-info" role="alert">
               <label>Información del Titular del Contrato</label>
-              <div class="form-group">
-                <input type="text" class="form-control" name="nombreEstudiante" id="nombreEstudiante" placeholder="Nombre completo titular del contrato" />
-              </div>
-              <div class="form-group">
-                <input type="email" class="form-control" name="emailEstudiante" id="emailEstudiante" placeholder="Correo electrónico titular del contrato" />
+              <div class="form-group col-md-12">
+                <select class="form-control datoCliente" onchange="dataClient()" style="width: 100%" id="select2" name="nombreEstudiante">
+                  @foreach ($clients as $client)
+                    <option value="{{$client->id}}">{{$client->name}}</option>
+                  @endforeach
+                </select>
+              <input type="text" class="form-control" name="email" id="email" placeholder="Ingresa el link de pago" />
+
               </div>
             </div>
             <div class="form-group">

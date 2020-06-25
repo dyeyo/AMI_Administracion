@@ -41,13 +41,13 @@
                     <td>{{$item->firstText}}</td>
                     <td>{{$item->type == 1 ? 'Plantilla Pago' : 'Plantilla Contrato'}}</td>
                     <td>
-                      <a href="{{ route('editPlantilla',$item->id) }}">Editar</a>
+                      <a class="btn btn-warning" href="{{ route('editPlantilla',$item->id) }}">Editar</a>
                     </td>
                     <td>
                       <form class="user"  action="{{route('deleteContract', $item->id)}}" method="post">
                         {{ method_field('delete') }}
                         {{csrf_field()}}
-                        <a class="btn btn-btn-outline-light"  onclick="return confirm('¿Esta seguro de eliminar este registro?')"  type="submit">ELIMINAR</button>
+                        <button class="btn btn-btn-outline-light"  onclick="return confirm('¿Esta seguro de eliminar este registro?')"  type="submit">ELIMINAR</button>
                       </form>
                     </td>
                   </tr>

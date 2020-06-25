@@ -39,16 +39,25 @@ class HomeController extends Controller
                                     ->where('pay',null)
                                     ->where('asesorId',Auth()->user()->id)
                                     ->count();
+
+      $clients = Clients::where('pay',null)->get();
       return view('home',compact('clientesPaySuccess','clientesPayPending','clientesAsesor','contracts',
-      'clientesPaySuccessCount','clientesPayPendingCount','asesorCount','clientesPaySuccessAsesorCount','clientesPayPendingAsesorCount'));
+      'clientesPaySuccessCount','clientesPayPendingCount','asesorCount','clientesPaySuccessAsesorCount',
+      'clientesPayPendingAsesorCount','clients'));
     }
 
     public function sendinfopay(Request $request)
     {
+      dd($request->all());
       Mail::to($request->emailEstudiante)->send(new MailSendemailpay());
       Mail::to(env('EMAIL_ADMIN'))->send(new MailSendmailPayAdmin());
       Session::flash('message', 'Correo electronico enviado con exito');
       return redirect()->route('home');
+    }
+
+    public function loadClient($id)
+    {
+      return response()->json(Clients::where('id', $id)->get());
     }
 
     public function paySuccess(Request $request, $id)

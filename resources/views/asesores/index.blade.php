@@ -10,7 +10,7 @@
       <div class="col-md-7 align-self-center text-right">
         <div class="d-flex justify-content-end align-items-center">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/home">Inicia</a></li>
+            <li class="breadcrumb-item"><a href="/home">Inicio</a></li>
             <li class="breadcrumb-item active">Asesores</li>
           </ol>
           <button type="button" class="btn btn-info d-none d-lg-block m-l-15" data-toggle="modal" data-target="#exampleModal">
@@ -46,7 +46,7 @@
                         <td>{{$asesor->numIdentification}}</td>
                         <td>{{$asesor->email}}</td>
                         <td>{{$asesor->phone}}</td>
-                        <td><a href="{{ route('editAsesor',$asesor->id) }}">Editar</a></td>
+                        <td><a  class="btn btn-warning" href="{{ route('editAsesor',$asesor->id) }}">Editar</a></td>
                       </tr>
                     @endforeach
                   </tbody>

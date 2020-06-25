@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="page-wrapper">
   <div class="container-fluid">
@@ -11,13 +10,13 @@
         <div class="d-flex justify-content-end align-items-center">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/home">Inicio</a></li>
-            <li class="breadcrumb-item active">Contratos</li>
+            <li class="breadcrumb-item active">Tareas</li>
           </ol>
           <button type="button" class="btn btn-info d-none d-lg-block m-l-15" data-toggle="modal" data-target="#exampleModal">
-          <i class="fa fa-plus-circle"></i> Agregar Contrato</button>
+          <i class="fa fa-plus-circle"></i> Agregar Tarea</button>
         </div>
       </div>
-    </div>
+  </div>
     <div class="row">
       <div class="col-lg-12 col-md-12">
         <div class="card">
@@ -33,23 +32,21 @@
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>Titulo</th>
-                    <th>Texto Principal</th>
-                    <th>Texto Secundario</th>
+                    <th>Nombre</th>
+                    <th>Fecha de Creación</th>
                     <th>Editar</th>
-                    <th>Eliminar</th>
+                    <th>Borrar</th>
                   </tr>
                   </thead>
                   <tbody>
-                    @foreach ($contracts as $contract)
+                    @foreach ($tasks as $task)
                       <tr>
-                        <td>{{$contract->id}}</td>
-                        <td>{{$contract->title}}</td>
-                        <td>{{Str::limit($contract->firstText),10}}</td>
-                        <td>{{Str::limit($contract->secondText),10}}</td>
-                        <td><a  class="btn btn-warning" href="{{ route('editContract',$contract->id) }}">Editar</a></td>
+                        <td>{{$task->id}}</td>
+                        <td>{{$task->name}}</td>
+                        <td>{{ Carbon\Carbon::parse($task->created_at)->format('d-m-Y') }}</td>
+                        <td><a  class="btn btn-warning" href="{{ route('editTask',$task->id) }}">Editar</a></td>
                         <td>
-                          <form class="user"  action="{{route('deleteContract', $contract->id)}}" method="post">
+                          <form class="user"  action="{{route('deleteTask', $task->id)}}" method="post">
                             {{ method_field('delete') }}
                             {{csrf_field()}}
                             <button class="btn btn-btn-outline-light"  onclick="return confirm('¿Esta seguro de eliminar este registro?')"  type="submit">ELIMINAR</button>
@@ -71,35 +68,27 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Crear Contrato</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Crear Tarea</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form action="{{route('contracsStore')}}" method="POST" id="contrato">
-          {{csrf_field()}}
-          <div class="form-group">
-            <label for="title">Titulo</label>
-            <input type="text" class="form-control" id="title" name="title" placeholder="Titulo del contrato">
-          </div>
-          <div class="form-group">
-            <label for="firstText">Texto Principal</label>
-            <textarea name="firstText" class="form-control" id="firstText" style="resize: none" cols="30" rows="10"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="secondText">Texto Secundario</label>
-            <textarea name="secondText" class="form-control" id="secondText" style="resize: none" cols="30" rows="10"></textarea>
+        <form method="POST" action="{{ route('createTask') }}" id="formTarea">
+          @csrf
+          <div class="form-group row">
+              <label for="name" class="col-md-12 col-form-label">Nombre de la Tarea</label>
+              <div class="col-md-12">
+                  <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+              </div>
           </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         <button type="submit" class="btn btn-primary">Guardar</button>
       </form>
-
       </div>
     </div>
   </div>
 </div>
-
 @endsection

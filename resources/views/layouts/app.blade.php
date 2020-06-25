@@ -14,6 +14,7 @@
     <link href="{{ asset('assets/css/toast-master/css/jquery.toast.css') }}" rel="stylesheet">
     <link href="{{ asset('dist/css/style.min.css')}}" rel="stylesheet">
     <link href="{{ asset('dist/css/pages/dashboard1.css')}}" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 </head>
 
 <body class="skin-default-dark fixed-layout">
@@ -53,20 +54,16 @@
   <script src="{{ asset('dist/js/sidebarmenu.js') }}"></script>
   <!--Custom JavaScript -->
   <script src="{{ asset('dist/js/custom.min.js') }}"></script>
-  <!-- ============================================================== -->
-  <!-- This page plugins -->
-  <!-- ============================================================== -->
-  <!--morris JavaScript -->
   <script src="{{ asset('assets/js/raphael/raphael-min.js') }}"></script>
   <script src="{{ asset('assets/js/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
-  <!-- Popup message jquery -->
-  <!-- jQuery peity -->
   <script src="{{ asset('assets/js/peity/jquery.peity.min.js') }}"></script>
   <script src="{{ asset('assets/js/peity/jquery.peity.init.js') }}"></script>
   <script src="{{ asset('assets/js/functions.js')}}"></script>
   <script src="{{ asset('assets/js/validations.js')}}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
   <script type="text/javascript">
   $(document).ready(function() {
+    $('#select2').select2();
     $('#tabla').DataTable({ language:
       {
         sProcessing: "Procesando...",

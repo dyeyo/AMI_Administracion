@@ -20,6 +20,11 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/home', 'HomeController@index')->name('home');
   Route::post('/envio_pago', 'HomeController@sendinfopay')->name('sendinfopay');
   Route::get('/logout',  'Auth\LoginController@logout')->name('logout');
+  Route::get('/clientes',  'ClientsController@index')->name('clients');
+  Route::get('/seguimiento/{id}',  'ClientsController@tracing')->name('tracing');
+  Route::post('/seguimiento/crear',  'ClientsController@storeTracing')->name('storeTracing');
+  Route::get('/loadClients',  'HomeController@loadClient')->name('loadClient');
+
   Route::group(['middleware' => ['admin']], function () {
     //EMIALS
     Route::get('/correos', 'EmailsController@index')->name('emails');
@@ -33,14 +38,30 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/contrato/{id}', 'ContractController@editContract')->name('editContract');
     Route::put('/contrato/editar/{id}', 'ContractController@updateContract')->name('updateContract');
     Route::delete('/contrato/elimar/{id}', 'ContractController@destroy')->name('deleteContract');
+
     //CLIENTES
+    Route::post('/clientes/crear',  'ClientsController@store')->name('createClient');
     Route::put('/pago/{id}', 'HomeController@paySuccess')->name('paySuccess');
+    Route::get('/clientes/editar/{id}',  'ClientsController@edit')->name('clientsEdit');
+    Route::put('/clientes/update/{id}',  'ClientsController@updateCliente')->name('updateCliente');
+
     //ASESOR
     Route::get('/asesores', 'AsesorController@index')->name('asesors');
     Route::post('/asesor/crear', 'AsesorController@store')->name('asesorStore');
     Route::get('/asesor/{id}', 'AsesorController@editAsesor')->name('editAsesor');
     Route::put('/asesor/editar/{id}', 'AsesorController@updateAsesor')->name('updateAsesor');
     Route::delete('/asesor/{id}', 'AsesorController@delete')->name('deleteAsesor');
+
+    //SEGUIMIENTO
+    Route::delete('/segimiento/{id}', 'ClientsController@deleteTracing')->name('deleteTracing');
+
+    //TAREAS
+    Route::get('/tareas', 'TaskController@index')->name('task');
+    Route::post('/tarea/crear', 'TaskController@store')->name('createTask');
+    Route::get('/tarea/{id}', 'TaskController@edit')->name('editTask');
+    Route::put('/tarea/editar/{id}', 'TaskController@update')->name('updateTask');
+    Route::delete('/tarea/{id}', 'TaskController@delete')->name('deleteTask');
+
   });
 
 });

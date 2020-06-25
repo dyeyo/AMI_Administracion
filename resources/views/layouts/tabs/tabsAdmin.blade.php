@@ -38,7 +38,7 @@
       <hr>
       <div class="row">
         <div class="col-md-12 formcontent">
-          <h1>Clientes Pendientes Pago</h1>
+          <h1>Clientes Pendientes Pago (Frios)</h1>
           <div class="">
             <table class="table" id="tabla">
               <thead>
@@ -68,7 +68,7 @@
                       <form action="{{ route('paySuccess',$client->id) }}" method="POST">
                         {{csrf_field()}}
                         {{ method_field('put') }}
-                        <input type="hidden" name="pay" value="1">
+                        <input type="hidden" name="pay" value="SI">
                         <button type="submit" class="btn btn-success">Matriculado</button>
                       </form>
                     <td>{{ Carbon\Carbon::parse($client->created_at)->format('d-m-Y') }}</td>
@@ -99,6 +99,10 @@
                   @endforeach
                 </select>
               <input type="hidden" name="email" id="email"/>
+              </div>
+              <div class="form-group">
+                <label>Colegio/Universidad</label>
+                <input type="text" class="form-control" name="scholl" id="scholl" placeholder="Colegio o Universidad" />
               </div>
             </div>
             <div class="form-group">

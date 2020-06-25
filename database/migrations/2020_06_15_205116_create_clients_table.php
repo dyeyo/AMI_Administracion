@@ -23,7 +23,8 @@ class CreateClientsTable extends Migration
         $table->string('phone')->nullable();
         $table->string('email')->unique()->nullable();
         $table->longText('contract')->nullable();
-        $table->integer('pay')->nullable();
+        $table->string('scholl')->nullable();
+        $table->string('pay')->nullable();
         $table->string('terminos')->nullable();
         $table->string('terminosCompra')->nullable();
         $table->string('terminosCusro')->nullable();

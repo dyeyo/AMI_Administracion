@@ -62,6 +62,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::put('/tarea/editar/{id}', 'TaskController@update')->name('updateTask');
     Route::delete('/tarea/{id}', 'TaskController@delete')->name('deleteTask');
 
+    //EXCEL
+    Route::get('/clientes/excel', 'ClientsController@loadExcel')->name('loadExcel');
+
   });
 
 });

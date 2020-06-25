@@ -3,23 +3,39 @@
 namespace App\Http\Controllers;
 
 use App\Clients;
+use App\Exports\ClientsExport;
 use App\Task;
 use App\TracingClient;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Maatwebsite\Excel\Facades\Excel;
 
 class ClientsController extends Controller
 {
   public function index()
   {
-    $clients = Clients::with('asesor')->where('pay',1)->get();
+    $clients = Clients::with('asesor')->where('pay','SI')->get();
     return view('clients.index',compact('clients'));
   }
 
   public function store(Request $request)
   {
-    Clients::create($request->all())->save();
+    $data = $request->validate([
+      'name' => 'required',
+      'addrees' => 'required',
+      'city' => 'required',
+      'numIdenficication' => 'required',
+      'phone' => 'required',
+      'email' => 'required|email|unique:clients',
+      'contract' => '',
+      'pay' => '',
+      'terminos' => '',
+      'terminosCompra' => '',
+      'terminosCusro' => '',
+      'asesorId' => '',
+    ]);
+    Clients::create($data)->save();
     Session::flash('message', 'Cliente registrado con Exito');
     return redirect()->route('clients');
   }
@@ -59,6 +75,11 @@ class ClientsController extends Controller
     TracingClient::find($id)->delete();
     Session::flash('message', 'Seguimiento Eliminado con Exito');
     return redirect()->route('clients');
+  }
+
+  public function loadExcel()
+  {
+    return Excel::download(new ClientsExport, 'Clientes.xlsx');
   }
 
 }

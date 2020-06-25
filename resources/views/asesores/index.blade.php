@@ -28,6 +28,16 @@
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
               </div>
             @endif
+            @if($errors->any())
+              <div class="alert alert-danger" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">×</span>
+                  </button>
+                  @foreach($errors->all() as $error)
+                      {{ $error }}<br/>
+                  @endforeach
+              </div>
+            @endif
             <div class="">
               <table class="table" id="tabla">
                 <thead>
@@ -86,12 +96,7 @@
           <div class="form-group row">
             <label for="lastname" class="col-md-12 col-form-label">Apellidos</label>
             <div class="col-md-12">
-                <input id="lastname" type="text" class="form-control @error('lastname') is-invalid @enderror" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname" autofocus>
-                @error('lastname')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                <input id="lastname" type="text" class="form-control" name="lastname" value="{{ old('lastname') }}" required autocomplete="lastname">
             </div>
           </div>
 
@@ -125,6 +130,7 @@
 
               <div class="col-md-12">
                   <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
+                  <input type="hidden" name="role" value="2">
 
                   @error('phone')
                       <span class="invalid-feedback" role="alert">
@@ -139,9 +145,6 @@
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         <button type="submit" class="btn btn-primary">Guardar</button>
       </form>
-
-      </form>
-
       </div>
     </div>
   </div>

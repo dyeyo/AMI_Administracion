@@ -12,3 +12,7 @@ span.error {
 #tabla_filter {
   text-align: end;
 }
+.txtMenu,
+#icon-nav {
+  color: #fff !important;
+}

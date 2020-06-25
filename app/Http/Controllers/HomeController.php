@@ -20,19 +20,19 @@ class HomeController extends Controller
 
     public function index()
     {
-      $clientesPaySuccess = Clients::with('asesor')->where('pay',1)->get();
+      $clientesPaySuccess = Clients::with('asesor')->where('pay','SI')->get();
       $clientesPayPending = Clients::with('asesor')->where('pay',null)->get();
       $clientesAsesor = Clients::with('asesor')
-                        ->where('pay',1)
+                        ->where('pay','SI')
                         ->where('asesorId',Auth()->user()->id)
                         ->get();
       $contracts = Contracts::all();
-      $clientesPaySuccessCount = Clients::with('asesor')->where('pay',1)->count();
+      $clientesPaySuccessCount = Clients::with('asesor')->where('pay','SI')->count();
       $clientesPayPendingCount = Clients::with('asesor')->where('pay',null)->count();
       $asesorCount  = User::where('role',2)->count();
 
       $clientesPaySuccessAsesorCount = Clients::with('asesor')
-                                    ->where('pay',1)
+                                    ->where('pay','SI')
                                     ->where('asesorId',Auth()->user()->id)
                                     ->count();
       $clientesPayPendingAsesorCount = Clients::with('asesor')

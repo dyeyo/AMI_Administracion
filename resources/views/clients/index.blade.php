@@ -15,6 +15,8 @@
           </ol>
           <button type="button" class="btn btn-info d-none d-lg-block m-l-15" data-toggle="modal" data-target="#exampleModal">
           <i class="fa fa-plus-circle"></i> Agregar cliente</button>
+          <a href="{{ route('loadExcel') }}" class="btn btn-success d-none d-lg-block m-l-15">
+          <i class="fa fa-file-excel"></i> Descargar Datos</a>
         </div>
       </div>
     </div>
@@ -22,12 +24,23 @@
       <div class="col-lg-12 col-md-12">
         <div class="card">
           <div class="card-body">
+            @if($errors->any())
+                <div class="alert alert-danger" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                    @foreach($errors->all() as $error)
+                        {{ $error }}<br/>
+                    @endforeach
+                </div>
+            @endif
             @if(Session::has('message'))
               <div class="alert alert-success">
                 {!! Session::get('message') !!}
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
               </div>
             @endif
+            <h2>Estudiantes Matriculados</h2>
             <div class="">
               <table class="table" id="tabla">
                 <thead>
@@ -98,6 +111,7 @@
           <div class="form-group">
             <label>Nombre Completo del Titular del Contrato</label>
             <input
+              value="{{ old('name') }}"
               type="text"
               class="form-control"
               name="name"
@@ -108,6 +122,7 @@
           <div class="form-group">
             <label>Dirección</label>
             <input
+              value="{{ old('addrees') }}"
               type="text"
               class="form-control"
               name="addrees"
@@ -118,6 +133,7 @@
           <div class="form-group">
             <label>Ciudad</label>
             <input
+              value="{{ old('city') }}"
               type="text"
               class="form-control"
               name="city"
@@ -128,6 +144,7 @@
           <div class="form-group">
             <label>No de identificación</label>
             <input
+              value="{{ old('numIdenficication') }}"
               type="text"
               class="form-control"
               name="numIdenficication"
@@ -138,6 +155,7 @@
           <div class="form-group">
             <label>Teléfono</label>
             <input
+              value="{{ old('phone') }}"
               type="text"
               class="form-control"
               name="phone"
@@ -148,6 +166,7 @@
           <div class="form-group">
             <label>Correo Electrónico</label>
             <input
+              value="{{ old('email') }}"
               type="email"
               class="form-control"
               name="email"

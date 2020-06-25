@@ -75,7 +75,7 @@ Morris.Area({
             value: 4870
         }],
         resize: true,
-        colors:['#fb9678', '#01c0c8', '#4F5467']
+        colors:['#195fa5', '#01c0c8', '#4F5467']
     });
  
 $("#sparkline8").sparkline([2,4,4,6,8,5,6,4,8,6,6,2 ], {
@@ -103,9 +103,9 @@ $("#sparkline8").sparkline([2,4,4,6,8,5,6,4,8,6,6,2 ], {
             type: 'line',
             width: '100%',
             height: '130',
-            lineColor: '#fb9678',
+            lineColor: '#195fa5',
             fillColor: 'rgba(251, 150, 120, 0.2)',
-            maxSpotColor: '#fb9678',
+            maxSpotColor: '#195fa5',
             highlightLineColor: 'rgba(0, 0, 0, 0.2)',
-            highlightSpotColor: '#fb9678'
+            highlightSpotColor: '#195fa5'
         });

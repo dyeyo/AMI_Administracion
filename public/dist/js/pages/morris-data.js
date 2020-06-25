@@ -242,7 +242,7 @@ Morris.Area({
 
 
                 ],
-                lineColors: ['#fb9678', '#01c0c8', '#8698b7'],
+                lineColors: ['#195fa5', '#01c0c8', '#8698b7'],
                 xkey: 'period',
                 ykeys: ['iphone', 'ipad', 'itouch'],
                 labels: ['Site A', 'Site B', 'Site C'],

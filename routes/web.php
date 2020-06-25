@@ -24,6 +24,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/seguimiento/{id}',  'ClientsController@tracing')->name('tracing');
   Route::post('/seguimiento/crear',  'ClientsController@storeTracing')->name('storeTracing');
   Route::get('/loadClients/{id}',  'HomeController@loadClient')->name('loadClient');
+  Route::post('/clientes/crear', 'ClientsController@store')->name('createClient');
 
   Route::group(['middleware' => ['admin']], function () {
     //EMIALS
@@ -40,7 +41,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('/contrato/elimar/{id}', 'ContractController@destroy')->name('deleteContract');
 
     //CLIENTES
-    Route::post('/clientes/crear',  'ClientsController@store')->name('createClient');
     Route::put('/pago/{id}', 'HomeController@paySuccess')->name('paySuccess');
     Route::get('/clientes/editar/{id}',  'ClientsController@edit')->name('clientsEdit');
     Route::put('/clientes/update/{id}',  'ClientsController@updateCliente')->name('updateCliente');

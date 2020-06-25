@@ -10,8 +10,8 @@
       <div class="col-md-7 align-self-center text-right">
         <div class="d-flex justify-content-end align-items-center">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/home">Inicio</a></li>
-            <li class="breadcrumb-item">Clientes</li>
+            <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="{{ route('clients') }}">Clientes</a></li>
             <li class="breadcrumb-item active">Seguimiento</li>
           </ol>
           <button type="button" class="btn btn-info d-none d-lg-block m-l-15" data-toggle="modal" data-target="#exampleModal">
@@ -39,6 +39,7 @@
                           <th class="footable-sortable">Correo Electronico<span class="footable-sort-indicator"></span></th>
                           <th class="footable-sortable">Observación<span class="footable-sort-indicator"></span></th>
                           <th class="footable-sortable">Tarea<span class="footable-sort-indicator"></span></th>
+                          <th class="footable-sortable">Fecha y Hora<span class="footable-sort-indicator"></span></th>
                           @if (Auth()->user()->role == 1)
                             <th class="footable-sortable">Eliminar<span class="footable-sort-indicator"></span></th>
                           @endIf
@@ -52,6 +53,7 @@
                             <td><span class="footable-toggle"></span>{{$item->client->email}}</td>
                             <td><span class="footable-toggle"></span>{{$item->observation}}</td>
                             <td><span class="label label-success">{{$item->task->name}}</span> </td>
+                            <td><span class="">{{Carbon\Carbon::parse($item->task->created_at)->format('d-m-Y')}}</span> </td>
                             @if (Auth()->user()->role == 1)
                               <td>
                                 <form class="user"  action="{{route('deleteTracing', $item->id)}}" method="post">

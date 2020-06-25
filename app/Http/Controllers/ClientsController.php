@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Clients;
 use App\Exports\ClientsExport;
+use App\Http\Requests\ClientsRequest;
 use App\Task;
 use App\TracingClient;
 use App\User;
@@ -15,27 +16,21 @@ class ClientsController extends Controller
 {
   public function index()
   {
-    $clients = Clients::with('asesor')->where('pay','SI')->get();
-    return view('clients.index',compact('clients'));
+    $clientsListAdmin = Clients::with('asesor')
+                      ->where('pay','SI')
+                      ->where('asesorId',Auth()->user()->id)
+                      ->get();
+
+    $clientsListAsesor = Clients::with('asesor')
+                      ->where('asesorId',Auth()->user()->id)
+                      ->get();
+
+    return view('clients.index',compact('clientsListAdmin','clientsListAsesor'));
   }
 
-  public function store(Request $request)
+  public function store(ClientsRequest $request)
   {
-    $data = $request->validate([
-      'name' => 'required',
-      'addrees' => 'required',
-      'city' => 'required',
-      'numIdenficication' => 'required',
-      'phone' => 'required',
-      'email' => 'required|email|unique:clients',
-      'contract' => '',
-      'pay' => '',
-      'terminos' => '',
-      'terminosCompra' => '',
-      'terminosCusro' => '',
-      'asesorId' => '',
-    ]);
-    Clients::create($data)->save();
+    Clients::create($request->all())->save();
     Session::flash('message', 'Cliente registrado con Exito');
     return redirect()->route('clients');
   }

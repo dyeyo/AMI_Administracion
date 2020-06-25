@@ -55,7 +55,22 @@ class ContractController extends Controller
 
   public function contractPay(Request $request)
   {
-    Clients::find($request->clientId)->update($request->all());
+    $client = Clients::find($request->clientId);
+    $client->name = $request->name;
+    $client->addrees = $request->addrees;
+    $client->city = $request->city;
+    $client->numIdenficication = $request->numIdenficication;
+    $client->phone = $request->phone;
+    $client->email = $request->email;
+    $client->contract = $request->contract;
+    $client->scholl = $request->scholl;
+    $client->pay = $request->pay;
+    $client->terminos = $request->terminos;
+    $client->terminosCompra = $request->terminosCompra;
+    $client->terminosCusro = $request->terminosCusro;
+    $client->asesorId  = $request->asesorId;
+    $client->update();
+
     Mail::to($request->email)->send(new  SendMailContractClient());
     Mail::to(env('EMAIL_ADMIN'))->send(new SendMailContractAdmin());
     Session::flash('message', 'Correo electronico enviado y Cliente registrado con exito');

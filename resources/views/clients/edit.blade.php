@@ -9,8 +9,8 @@
       <div class="col-md-7 align-self-center text-right">
         <div class="d-flex justify-content-end align-items-center">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="/home">Inicio</a></li>
-              <li class="breadcrumb-item"><a href="/asesores">Gestion de Clientes</a></li>
+              <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+              <li class="breadcrumb-item"><a href="{{ route('clients') }}">Gestion de Clientes</a></li>
               <li class="breadcrumb-item activate"><a href="#">Editar Cliente</a></li>
             </ol>
         </div>

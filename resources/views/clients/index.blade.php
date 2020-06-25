@@ -10,7 +10,7 @@
       <div class="col-md-7 align-self-center text-right">
         <div class="d-flex justify-content-end align-items-center">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="/home">Inicio</a></li>
+            <li class="breadcrumb-item"><a href="/">Inicio</a></li>
             <li class="breadcrumb-item active">Clientes</li>
           </ol>
           <button type="button" class="btn btn-info d-none d-lg-block m-l-15" data-toggle="modal" data-target="#exampleModal">
@@ -40,49 +40,95 @@
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
               </div>
             @endif
+            @if (Auth()->user()->role == 1)
             <h2>Estudiantes Matriculados</h2>
-            <div class="">
-              <table class="table" id="tabla">
-                <thead>
-                  <tr>
-                    <th>Nombre completo</th>
-                    <th>Numero de ID</th>
-                    <th>Ciudad</th>
-                    <th>Dirección</th>
-                    <th>Telefono</th>
-                    <th>Correo</th>
-                    <th>Asesor</th>
-                    <th>Fecha de Registro</th>
-                    <th>Seguimiento</th>
-                    @if (Auth()->user()->role == 1)
-                      <th>Editar</th>
-                    @endIf
-                  </tr>
-                </thead>
-                <tbody>
-                  @foreach ($clients as $client)
+              <div class="">
+                <table class="table" id="tabla">
+                  <thead>
                     <tr>
-                      <td>{{$client->name}}</td>
-                      <td>{{$client->numIdenficication}}</td>
-                      <td>{{$client->city}}</td>
-                      <td>{{$client->addrees}}</td>
-                      <td>{{$client->phone}}</td>
-                      <td>{{$client->email}}</td>
-                      <td>{{$client->asesor->name}}</td>
-                      <td>{{ Carbon\Carbon::parse($client->created_at)->format('d-m-Y') }}</td>
-                      <td>
-                        <a href="{{ route('tracing',$client->id) }}"><i class="fas fa-eye"></i></a>
-                      </td>
+                      <th>Nombre completo</th>
+                      <th>Numero de ID</th>
+                      <th>Ciudad</th>
+                      <th>Dirección</th>
+                      <th>Telefono</th>
+                      <th>Correo</th>
+                      <th>Asesor</th>
+                      <th>Fecha de Registro</th>
+                      <th>Seguimiento</th>
                       @if (Auth()->user()->role == 1)
-                        <td>
-                          <a class="btn btn-warning btn-sm" href="{{ route('clientsEdit',$client->id) }}">Editar</a>
-                        </td>
-                      @endif
+                        <th>Editar</th>
+                      @endIf
                     </tr>
-                  @endforeach
-                </tbody>
-              </table>
-            </div>
+                  </thead>
+                  <tbody>
+                    @foreach ($clientsListAdmin as $client)
+                      <tr>
+                        <td>{{$client->name}}</td>
+                        <td>{{$client->numIdenficication}}</td>
+                        <td>{{$client->city}}</td>
+                        <td>{{$client->addrees}}</td>
+                        <td>{{$client->phone}}</td>
+                        <td>{{$client->email}}</td>
+                        <td>{{$client->asesor->name}}</td>
+                        <td>{{ Carbon\Carbon::parse($client->created_at)->format('d-m-Y') }}</td>
+                        <td>
+                          <a href="{{ route('tracing',$client->id) }}"><i class="fas fa-eye"></i></a>
+                        </td>
+                        @if (Auth()->user()->role == 1)
+                          <td>
+                            <a class="btn btn-warning btn-sm" href="{{ route('clientsEdit',$client->id) }}">Editar</a>
+                          </td>
+                        @endif
+                      </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+              </div>
+            @else
+            <h2>Seguimiento de mis Clientes</h2>
+              <div class="">
+                <table class="table" id="tabla">
+                  <thead>
+                    <tr>
+                      <th>Nombre completo</th>
+                      <th>Numero de ID</th>
+                      <th>Ciudad</th>
+                      <th>Dirección</th>
+                      <th>Telefono</th>
+                      <th>Correo</th>
+                      <th>Asesor</th>
+                      <th>Fecha de Registro</th>
+                      <th>Seguimiento</th>
+                      @if (Auth()->user()->role == 1)
+                        <th>Editar</th>
+                      @endIf
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach ($clientsListAsesor as $client)
+                      <tr>
+                        <td>{{$client->name}}</td>
+                        <td>{{$client->numIdenficication}}</td>
+                        <td>{{$client->city}}</td>
+                        <td>{{$client->addrees}}</td>
+                        <td>{{$client->phone}}</td>
+                        <td>{{$client->email}}</td>
+                        <td>{{$client->asesor->name}}</td>
+                        <td>{{ Carbon\Carbon::parse($client->created_at)->format('d-m-Y') }}</td>
+                        <td>
+                          <a href="{{ route('tracing',$client->id) }}"><i class="fas fa-eye"></i></a>
+                        </td>
+                        @if (Auth()->user()->role == 1)
+                          <td>
+                            <a class="btn btn-warning btn-sm" href="{{ route('clientsEdit',$client->id) }}">Editar</a>
+                          </td>
+                        @endif
+                      </tr>
+                    @endforeach
+                  </tbody>
+                </table>
+              </div>
+            @endIf
           </div>
         </div>
       </div>
@@ -103,21 +149,45 @@
         <form
           class="ui form"
           action="{{route('createClient')}}"
-          id="contratoForm"
+          id="formCliente"
           method="POST">
           {{ method_field('post') }}
           {{csrf_field()}}
           <input type="hidden" name="asesorId" id="asesorId" value="{{Auth()->user()->id}}" />
-          <div class="form-group">
-            <label>Nombre Completo del Titular del Contrato</label>
-            <input
-              value="{{ old('name') }}"
-              type="text"
-              class="form-control"
-              name="name"
-              id="name"
-              placeholder="Nombre Completo del Titular"
-            />
+          <div class="alert alert-info" role="alert">
+            <div class="form-group">
+              <label>Nombre Completo del Titular del Contrato</label>
+              <input
+                value="{{ old('name') }}"
+                type="text"
+                class="form-control"
+                name="name"
+                id="name"
+                placeholder="Nombre Completo del Titular"
+              />
+            </div>
+            <div class="form-group">
+              <label>Teléfono</label>
+              <input
+                value="{{ old('phone') }}"
+                type="text"
+                class="form-control"
+                name="phone"
+                id="phone"
+                placeholder="Telefono"
+              />
+            </div>
+            <div class="form-group">
+              <label>Correo Electrónico</label>
+              <input
+                value="{{ old('email') }}"
+                type="email"
+                class="form-control"
+                name="email"
+                id="email"
+                placeholder="Correo Electronico"
+              />
+            </div>
           </div>
           <div class="form-group">
             <label>Dirección</label>
@@ -152,28 +222,7 @@
               placeholder="no Identificación"
             />
           </div>
-          <div class="form-group">
-            <label>Teléfono</label>
-            <input
-              value="{{ old('phone') }}"
-              type="text"
-              class="form-control"
-              name="phone"
-              id="phone"
-              placeholder="Telefono"
-            />
-          </div>
-          <div class="form-group">
-            <label>Correo Electrónico</label>
-            <input
-              value="{{ old('email') }}"
-              type="email"
-              class="form-control"
-              name="email"
-              id="email"
-              placeholder="Correo Electronico"
-            />
-          </div>
+
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         <button type="submit" class="btn btn-primary">Guardar</button>
@@ -182,6 +231,4 @@
     </div>
   </div>
 </div>
-
-@include('layouts.fotter')
 @endsection

@@ -10,7 +10,7 @@
         <div class="col-md-7 align-self-center text-right">
           <div class="d-flex justify-content-end align-items-center">
               <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="/home">Inicio</a></li>
+                <li class="breadcrumb-item"><a href="/">Inicio</a></li>
               </ol>
           </div>
         </div>

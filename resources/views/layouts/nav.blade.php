@@ -66,7 +66,7 @@
          </ul>
          @else
            <ul id="sidebarnav">
-            <li class="nav-small-cap">--- ADMINISTRACIÓN</li>
+            <li class="nav-small-cap text-white">--- ADMINISTRACIÓN</li>
             <li>
               <a class="waves-effect waves-dark" href="{{ route('home') }}"><i id="icon-nav" class="fas fa-home"></i><span class="hide-menu txtMenu">Inicio</span></a>
             </li>

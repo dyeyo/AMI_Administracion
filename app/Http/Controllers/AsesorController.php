@@ -57,7 +57,16 @@ class AsesorController extends Controller
       $asesor->password = Hash::make($request->password);
     }
     $asesor->update();
-    Session::flash('message', 'Cliente actualizado con exito');
-    return redirect()->route('home');
+    Session::flash('message', 'Asesor actualizado con exito');
+    return redirect()->route('asesors');
+  }
+
+  public function disabledAsesor($id)
+  {
+    $asesor = User::find($id);
+    $asesor->password = '';
+    $asesor->update();
+    Session::flash('message', 'Asesor desactivado, para volver a activar debe asignarle una constraseña nuevamente');
+    return redirect()->route('asesors');
   }
 }

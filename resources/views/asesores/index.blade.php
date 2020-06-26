@@ -47,6 +47,7 @@
                     <th>Correo</th>
                     <th>Telefono</th>
                     <th>Editar</th>
+                    <th>Desactivar</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -57,6 +58,21 @@
                         <td>{{$asesor->email}}</td>
                         <td>{{$asesor->phone}}</td>
                         <td><a  class="btn btn-warning" href="{{ route('editAsesor',$asesor->id) }}">Editar</a></td>
+                        @if ($asesor->password == '')
+                          <td>
+                            <button class="btn btn-btn-outline-light" disabled>DESACTIVADO</button>
+                          </td>
+                        @else
+                          <td>
+                            <form class="user"  action="{{route('disabledAsesor', $asesor->id)}}" method="post">
+                              {{ method_field('put') }}
+                              {{csrf_field()}}
+                              <input type="hidden" name="password" value="">
+                              <button class="btn btn-btn-outline-light"  onclick="return confirm('¿Esta seguro de desactivar este asesor?')"  type="submit">DESACTIVAR</button>
+                            </form>
+                          </td>
+                        @endif
+
                       </tr>
                     @endforeach
                   </tbody>

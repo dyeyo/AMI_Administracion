@@ -50,7 +50,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::post('/asesor/crear', 'AsesorController@store')->name('asesorStore');
     Route::get('/asesor/{id}', 'AsesorController@editAsesor')->name('editAsesor');
     Route::put('/asesor/editar/{id}', 'AsesorController@updateAsesor')->name('updateAsesor');
-    Route::delete('/asesor/{id}', 'AsesorController@delete')->name('deleteAsesor');
+    Route::put('/asesor/desactivar/{id}', 'AsesorController@disabledAsesor')->name('disabledAsesor');
 
     //SEGUIMIENTO
     Route::delete('/segimiento/{id}', 'ClientsController@deleteTracing')->name('deleteTracing');

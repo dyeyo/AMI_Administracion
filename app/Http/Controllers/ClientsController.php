@@ -16,10 +16,7 @@ class ClientsController extends Controller
 {
   public function index()
   {
-    $clientsListAdmin = Clients::with('asesor')
-                      ->where('pay','SI')
-                      ->where('asesorId',Auth()->user()->id)
-                      ->get();
+    $clientsListAdmin = Clients::where('pay','SI')->get();
 
     $clientsListAsesor = Clients::with('asesor')
                       ->where('asesorId',Auth()->user()->id)
@@ -38,7 +35,7 @@ class ClientsController extends Controller
   public function edit($id)
   {
     $client = Clients::with('asesor')->find($id);
-    $asesores = User::where('role',2)->get();
+    $asesores = User::where('role',2)->where('password','!=','')->get();
     return view('clients.edit',compact('client','asesores'));
   }
 

@@ -50,6 +50,7 @@
                   <th>Telefono</th>
                   <th>Correo</th>
                   <th>Asesor</th>
+                  <th>Editar</th>
                   <th>Pagado</th>
                   <th>Fecha de contrato</th>
                 </tr>
@@ -64,6 +65,9 @@
                     <td>{{$client->phone}}</td>
                     <td>{{$client->email}}</td>
                     <td>{{$client->asesor->name}}</td>
+                    <td>
+                      <a class="btn btn-warning btn-sm" href="{{ route('clientsEdit',$client->id) }}">Editar</a>
+                    </td>
                     <td>
                       <form action="{{ route('paySuccess',$client->id) }}" method="POST">
                         {{csrf_field()}}

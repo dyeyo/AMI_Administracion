@@ -26,7 +26,7 @@
               <div class="form-group row">
                 <label for="name" class="col-md-12 col-form-label">Asesor Encargado</label>
                 <div class="col-md-12">
-                  <select class="form-control" id="select2" name="asesorId">
+                  <select class="form-control select2" id="select2" name="asesorId">
                     <option value="{{$client->asesorId}}">{{$client->asesor->name}}</option>
                     @foreach ($asesores as $asesor)
                       <option value="{{$asesor->id}}">{{$asesor->name}}</option>

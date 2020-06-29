@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Clients;
 use App\Contracts;
+use App\Mail\MailSendemailpayCou1600;
 use App\Mail\MailSendmailPayAdmin;
 use App\Mail\Sendemailpay as MailSendemailpay;
 use App\User;
@@ -48,10 +49,17 @@ class HomeController extends Controller
 
     public function sendinfopay(Request $request)
     {
-      Mail::to($request->email)->send(new MailSendemailpay());
-      Mail::to(env('EMAIL_ADMIN'))->send(new MailSendmailPayAdmin());
-      Session::flash('message', 'Correo electronico enviado con exito');
-      return redirect()->route('home');
+      if($request->tipoContrato == "1"){
+        Mail::to($request->email)->send(new MailSendemailpay());
+        Mail::to(env('EMAIL_ADMIN'))->send(new MailSendmailPayAdmin());
+        Session::flash('message', 'Correo electronico enviado con exito');
+        return redirect()->route('home');
+      }else{
+        Mail::to($request->email)->send(new MailSendemailpayCou1600());
+        Mail::to(env('EMAIL_ADMIN'))->send(new MailSendmailPayAdmin());
+        Session::flash('message', 'Correo electronico enviado con exito');
+        return redirect()->route('home');
+      }
     }
 
     public function loadClient($id)

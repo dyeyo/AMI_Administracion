@@ -54,10 +54,7 @@
                 @endforeach
               </select>
             <input type="hidden" name="email" id="email"/>
-            <div class="form-group">
-              <label>Colegio/Universidad</label>
-              <input type="text" class="form-control" name="scholl" id="scholl" placeholder="Colegio o Universidad" />
-            </div>
+            
             </div>
           </div>
           <div class="form-group">

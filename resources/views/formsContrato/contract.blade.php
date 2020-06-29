@@ -27,6 +27,17 @@
             />
           </div>
           <div class="form-group">
+            <label>No de identificación</label>
+            <input
+              type="text"
+              value="{{decrypt($_GET["numIdenficication"])}}"
+              class="form-control"
+              name="numIdenficication"
+              id="numIdenficication"
+              placeholder="no Identificación"
+            />
+          </div>
+          <div class="form-group">
             <label>Dirección</label>
             <input
               type="text"
@@ -49,15 +60,8 @@
             />
           </div>
           <div class="form-group">
-            <label>No de identificación</label>
-            <input
-              type="text"
-              value="{{decrypt($_GET["numIdenficication"])}}"
-              class="form-control"
-              name="numIdenficication"
-              id="numIdenficication"
-              placeholder="no Identificación"
-            />
+            <label>Colegio/Universidad</label>
+            <input type="text" class="form-control" name="scholl" id="scholl" placeholder="Colegio o Universidad" />
           </div>
           <div class="form-group">
             <label>Teléfono</label>

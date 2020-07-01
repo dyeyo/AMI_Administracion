@@ -40,7 +40,7 @@ class ContractController extends Controller
 
   public function editContract(Request $request, $id)
   {
-    $contract = Contracts::find($id);
+    $contract = Contracts::with('emails')->find($id);
     $templatesEmail = TemplateEmail::where('id','>',2)->get();
     return view('formsContrato.edit',compact('contract','templatesEmail'));
   }

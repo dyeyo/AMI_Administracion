@@ -19,7 +19,6 @@
               <button type="button" class="btn btn-info d-none d-lg-block m-l-15" data-toggle="modal" data-target="#exampleModal">
               <i class="fa fa-plus-circle"></i> Agregar Plantilla</button>
             @endif
-
         </div>
       </div>
     </div>

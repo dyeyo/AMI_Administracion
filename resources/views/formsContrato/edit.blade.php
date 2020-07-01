@@ -39,7 +39,7 @@
                 <div class="form-group">
                   <label>Plantilla de Email</label>
                   <select class="form-control select2" name="emailId" style="width: 100%" id="emailId">
-                    <option value="{{$contract->id}}">{{$contract->title}}</option>
+                    <option value="{{$contract->emails->id}}">{{$contract->emails->title}}</option>
                     @foreach ($templatesEmail as $template)
                       <option value="{{$template->id}}">{{$template->title}}</option>
                     @endforeach

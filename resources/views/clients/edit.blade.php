@@ -20,7 +20,7 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-body">
-            <form action="{{route('updateCliente',$client->id)}}" method="POST" id="contratoForm">
+            <form action="{{route('updateCliente',$client->id)}}" method="POST" id="formClienteEdit">
               {{csrf_field()}}
               {{ method_field('put') }}
               <div class="form-group row">
@@ -48,7 +48,7 @@
               <div class="form-group row">
                 <label for="addrees" class="col-md-12 col-form-label">Dirección</label>
                 <div class="col-md-12">
-                    <input value="{{$client->addrees}}" id="addrees" type="text" class="form-control @error('addrees') is-invalid @enderror" name="addrees" value="{{ old('addrees') }}" required autocomplete="addrees" autofocus>
+                    <input value="{{$client->addrees}}" id="addrees" type="text" class="form-control @error('addrees') is-invalid @enderror" name="addrees" value="{{ old('addrees') }}"  autocomplete="addrees" autofocus>
                     @error('addrees')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -59,7 +59,7 @@
               <div class="form-group row">
                 <label for="numIdenficication" class="col-md-12 col-form-label">Numero de identificación</label>
                 <div class="col-md-12">
-                    <input value="{{$client->numIdenficication}}" id="numIdenficication" type="text" class="form-control @error('numIdenficication') is-invalid @enderror" name="numIdenficication" value="{{ old('numIdenficication') }}" required autocomplete="numIdenficication" autofocus>
+                    <input value="{{$client->numIdenficication}}" id="numIdenficication" type="text" class="form-control @error('numIdenficication') is-invalid @enderror" name="numIdenficication" value="{{ old('numIdenficication') }}"  autocomplete="numIdenficication" autofocus>
                     @error('numIdenficication')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -70,12 +70,8 @@
               <div class="form-group row">
                 <label for="city" class="col-md-12 col-form-label">Ciudad</label>
                 <div class="col-md-12">
-                    <input value="{{$client->city}}" id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city') }}" required autocomplete="city" autofocus>
-                    @error('city')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                    @enderror
+                    <input value="{{$client->city}}" id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city') }}"  autocomplete="city" autofocus>
+
                 </div>
               </div>
               <div class="form-group row">

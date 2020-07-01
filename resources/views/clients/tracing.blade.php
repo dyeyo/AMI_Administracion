@@ -95,12 +95,21 @@
           <input type="hidden" name="clientId" id="clientId" value="{{$client->id}}" />
           <div class="form-group">
             <label>Tarea</label>
-            <select class="form-control select2" style="width: 100%;" id="taskId" name="taskId">
-              <option value=""></option>
-              @foreach ($tasks as $task)
-                <option value="{{$task->id}}">{{$task->name}}</option>
-              @endforeach
-            </select>
+            @if (Auth()->user()->role == 1)
+              <select class="form-control select2" style="width: 100%;" id="taskId" name="taskId">
+                <option value=""></option>
+                @foreach ($tasksAdmin as $task)
+                  <option value="{{$task->id}}">{{$task->name}}</option>
+                @endforeach
+              </select>
+            @else
+              <select class="form-control select2" style="width: 100%;" id="taskId" name="taskId">
+                <option value=""></option>
+                @foreach ($tasksAsesor as $task)
+                  <option value="{{$task->id}}">{{$task->name}}</option>
+                @endforeach
+              </select>
+            @endif
           </div>
           <div class="form-group">
             <label>Observación</label>

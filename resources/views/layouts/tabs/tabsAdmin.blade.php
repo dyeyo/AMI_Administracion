@@ -109,12 +109,13 @@
             </div>
             <div class="form-group">
               <label>Tipo de Contrato</label>
-              <select class="form-control" name="tipoContrato" id="tipoContrato">
+              <select class="form-control select2" style="width: 100%" onchange="dataTemplateEmailSendContract()" name="tipoContrato" id="tipoContrato">
                 <option value="">Debes seleccionar una opción</option>
                 @foreach ($contracts as $contract)
                   <option value="{{$contract->id}}">{{$contract->title}}</option>
                 @endforeach
               </select>
+              <input type="hidden" name="idtemplate" id="idtemplate"/>
             </div>
             <div class="form-group">
               <label>Link de pago</label>

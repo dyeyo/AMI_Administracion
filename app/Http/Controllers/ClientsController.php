@@ -50,9 +50,11 @@ class ClientsController extends Controller
   public function tracing($id)
   {
     $client = Clients::find($id);
-    $tasks = Task::where('type',2)->get();
+    $tasksAdmin = Task::where('type',1)->get();
+    $tasksAsesor = Task::where('type',2)->get();
     $tracing = TracingClient::with('client','task')->where('clientId',$id)->get();
-    return view('clients.tracing',compact('tracing','client','tasks'));
+    return view('clients.tracing',compact('tracing','client','tasksAdmin',
+    'tasksAsesor'));
   }
 
   public function storeTracing(Request $request)

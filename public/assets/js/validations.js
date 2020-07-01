@@ -126,6 +126,34 @@ if ($("#formCliente").length > 0) {
     },
   });
 }
+if ($("#formClienteEdit").length > 0) {
+  $("#formClienteEdit").validate({
+    rules: {
+      name: {
+        required: true,
+      },
+      phone: {
+        required: true,
+      },
+      email: {
+        required: true,
+        email: true,
+      },
+    },
+    messages: {
+      name: {
+        required: "Este campo es obligatorio",
+      },
+      phone: {
+        required: "Este campo es obligatorio",
+      },
+      email: {
+        required: "Este campo es obligatorio",
+        email: "Este campo debe ser un correo valido",
+      },
+    },
+  });
+}
 
 if ($("#contrato").length > 0) {
   $("#contrato").validate({

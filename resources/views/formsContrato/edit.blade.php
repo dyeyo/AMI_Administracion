@@ -35,6 +35,17 @@
                 <label for="secondText">Texto Secundario</label>
                 <textarea name="secondText" class="form-control" id="secondText" style="resize: none" cols="30" rows="10">{{$contract->secondText}}</textarea>
               </div>
+              @if($contract->emailId != null || $contract->emailId != '')
+                <div class="form-group">
+                  <label>Plantilla de Email</label>
+                  <select class="form-control select2" name="emailId" style="width: 100%" id="emailId">
+                    <option value="{{$contract->id}}">{{$contract->title}}</option>
+                    @foreach ($templatesEmail as $template)
+                      <option value="{{$template->id}}">{{$template->title}}</option>
+                    @endforeach
+                  </select>
+                </div>
+              @endIf
               <button type="submit" class="btn btn-primary">Editar Contrato</button>
             </form>
           </div>

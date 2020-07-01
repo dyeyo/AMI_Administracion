@@ -29,9 +29,11 @@ Route::group(['middleware' => ['auth']], function () {
   Route::group(['middleware' => ['admin']], function () {
     //EMIALS
     Route::get('/correos', 'EmailsController@index')->name('emails');
+    Route::post('/correos/crear', 'EmailsController@store')->name('store');
     Route::get('/editar_plantilla/{id}', 'EmailsController@editPlantilla')->name('editPlantilla');
     Route::put('/actualziar_plantilla/{id}', 'EmailsController@updatePlantilla')->name('updatePlantilla');
     Route::delete('/correo/{id}', 'EmailsController@destroy')->name('deleteEmail');
+    Route::get('/correo/template/{id}', 'EmailsController@loadTemplate')->name('loadTemplate');
 
     //CONTRATOS
     Route::get('/contratos', 'ContractController@index')->name('contracs');

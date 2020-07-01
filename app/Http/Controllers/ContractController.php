@@ -6,6 +6,7 @@ use App\Clients;
 use App\Contracts;
 use App\Mail\SendMailContractAdmin;
 use App\Mail\SendMailContractClient;
+use App\TemplateEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Mail;
@@ -16,7 +17,8 @@ class ContractController extends Controller
   public function index()
   {
     $contracts = Contracts::all();
-    return view('formsContrato.index',compact('contracts'));
+    $templatesEmail = TemplateEmail::where('id','>',2)->get();
+    return view('formsContrato.index',compact('contracts','templatesEmail'));
   }
 
   public function contract()
@@ -39,7 +41,8 @@ class ContractController extends Controller
   public function editContract(Request $request, $id)
   {
     $contract = Contracts::find($id);
-    return view('formsContrato.edit',compact('contract'));
+    $templatesEmail = TemplateEmail::where('id','>',2)->get();
+    return view('formsContrato.edit',compact('contract','templatesEmail'));
   }
 
   public function updateContract(Request $request, $id)

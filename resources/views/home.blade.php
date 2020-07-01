@@ -35,6 +35,12 @@
                                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                 </div>
                               @endif
+                              @if(Session::has('messageErrorEmail'))
+                                <div class="alert alert-danger">
+                                  {!! Session::get('messageErrorEmail') !!}
+                                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                                </div>
+                              @endif
                               <div id="tabs">
                                 <ul class="nav nav-tabs" role="tablist">
                                   @if (Auth()->user()->role == 1)

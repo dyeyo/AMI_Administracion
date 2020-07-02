@@ -17,7 +17,7 @@ class ClientsController extends Controller
   public function index()
   {
     $clientsListAdmin = Clients::where('pay','SI')->get();
-    $clientsList = Clients::where('asesorId','!=',1)->get();
+    $clientsList = Clients::where('asesorId','!=',1)->where('pay',null)->get();
     $clientsListAsesor = Clients::with('asesor')
                       ->where('asesorId',Auth()->user()->id)
                       ->get();

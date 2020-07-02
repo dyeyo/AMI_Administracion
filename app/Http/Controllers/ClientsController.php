@@ -17,12 +17,12 @@ class ClientsController extends Controller
   public function index()
   {
     $clientsListAdmin = Clients::where('pay','SI')->get();
-
+    $clientsList = Clients::where('asesorId','!=',1)->get();
     $clientsListAsesor = Clients::with('asesor')
                       ->where('asesorId',Auth()->user()->id)
                       ->get();
 
-    return view('clients.index',compact('clientsListAdmin','clientsListAsesor'));
+    return view('clients.index',compact('clientsListAdmin','clientsListAsesor','clientsList'));
   }
 
   public function store(ClientsRequest $request)

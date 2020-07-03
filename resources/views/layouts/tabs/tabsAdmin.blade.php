@@ -96,7 +96,7 @@
             <div class="alert alert-info" role="alert">
               <label>Información del Titular del Contrato</label>
               <div class="form-group col-md-12">
-                <select class="form-control datoCliente select2" onchange="dataClient()" style="width: 100%" id="select2" name="nombreEstudiante">
+                <select class="form-control datoCliente select2" onchange="dataClient()" style="width: 100%" name="nombreEstudiante">
                   <option value=""></option>
                   @foreach ($clients as $client)
                     <option value="{{$client->id}}">{{$client->name}}</option>
@@ -109,16 +109,15 @@
             </div>
             <div class="form-group">
               <label>Tipo de Contrato</label>
-              <select class="form-control select2" style="width: 100%" onchange="dataTemplateEmailSendContract()" name="tipoContrato" id="tipoContrato">
-                <option value="">Debes seleccionar una opción</option>
+              <select class="form-control" style="width: 100%" onchange="dataTemplateEmailSendContract()" name="tipoContrato" id="tipoContrato">
                 @foreach ($contracts as $contract)
                   <option value="{{$contract->id}}">{{$contract->title}}</option>
                 @endforeach
               </select>
-              <input type="hidden" name="idtemplate" id="idtemplate"/>
             </div>
             <div class="form-group">
               <label>Link de pago</label>
+              <input type="hidden" name="idtemplate" id="idtemplate"/>
               <input type="text" class="form-control" name="linkPago" id="linkPago" placeholder="Ingresa el link de pago" />
             </div>
             <div class="form-group">

@@ -59,7 +59,13 @@ class HomeController extends Controller
           Session::flash('message', 'Correo electronico enviado con exito');
           return redirect()->route('home');
         }
-        if($request->contratoNum == "2" || $request->contratoNum == "3"){
+        elseif($request->contratoNum == "2"){
+          Mail::to($request->email)->send(new MailSendemailpayCou1600());
+          //Mail::to(env('EMAIL_ADMIN'))->send(new MailSendmailPayAdmin());
+          Session::flash('message', 'Correo electronico enviado con exito');
+          return redirect()->route('home');
+        }
+        elseif($request->contratoNum == "3"){
           Mail::to($request->email)->send(new MailSendemailpayCou1600());
           //Mail::to(env('EMAIL_ADMIN'))->send(new MailSendmailPayAdmin());
           Session::flash('message', 'Correo electronico enviado con exito');

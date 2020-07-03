@@ -26,7 +26,7 @@ class ClientsController extends Controller
                       ->where('asesorId',Auth()->user()->id)
                       ->where('pay',null)
                       ->get();
-    return view('clients.index',compact('clientsListAdmin','clientsListAsesor','clientsListAsesorMatriculado','clientsListAsesorSinMatricula'));
+    return view('clients.index',compact('clientsListAdmin','clientsListAsesorMatriculado','clientsListAsesorSinMatricula'));
   }
 
   public function store(ClientsRequest $request)

@@ -24,5 +24,7 @@ function dataTemplateEmailSendContract() {
       console.log(data);
       $("#idtemplate").val(data[0].emailId);
     });
+  }else{
+    $("#idtemplate").val('');
   }
 }

@@ -1,5 +1,3 @@
-const { isEmpty } = require("lodash");
-
 function contrato() {
   $("#contratocontenedor").show();
   let nombre = $("#name").val();
@@ -20,16 +18,12 @@ function dataClient() {
 }
 
 function dataTemplateEmailSendContract() {
-  var tipoContrato = $("#tipoContrato").val();
-  if (tipoContrato != 0) {
-    $.getJSON(route("loadTemplate", { id: tipoContrato }), function (data) {
-      if(data[0].emailId != null ){
-        console.log(data);
-        $("#idtemplate").val(data[0].emailId);
-      }
-      else{
-        console.log('fdsad');
-      }
-    });
-  }
+  let tipoContrato = $("#tipoContrato").val();
+  $.getJSON(route("loadTemplate", { id: tipoContrato }), function (data) {
+    if(data[0].emailId != null ){
+      console.log(data);
+      $("#idtemplate").val(data[0].emailId);
+    }
+  })
+      
 }

@@ -18,11 +18,15 @@ class ClientsController extends Controller
   {
     $clientsListAdmin = Clients::where('pay','SI')->get();
     $clientsList = Clients::where('asesorId','!=',1)->where('pay',null)->get();
-    $clientsListAsesor = Clients::with('asesor')
+    $clientsListAsesorMatriculado = Clients::with('asesor')
                       ->where('asesorId',Auth()->user()->id)
+                      ->where('pay','SI')
                       ->get();
-
-    return view('clients.index',compact('clientsListAdmin','clientsListAsesor','clientsList'));
+    $clientsListAsesorSinMatricula = Clients::with('asesor')
+                      ->where('asesorId',Auth()->user()->id)
+                      ->where('pay',null)
+                      ->get();
+    return view('clients.index',compact('clientsListAdmin','clientsListAsesor','clientsListAsesorMatriculado','clientsListAsesorSinMatricula'));
   }
 
   public function store(ClientsRequest $request)

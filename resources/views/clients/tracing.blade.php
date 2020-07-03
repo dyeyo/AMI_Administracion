@@ -53,7 +53,7 @@
                             <td><span class="footable-toggle"></span>{{$item->client->email}}</td>
                             <td><span class="footable-toggle"></span>{{$item->observation}}</td>
                             <td><span class="label label-success">{{$item->task->name}}</span> </td>
-                            <td><span class="">{{Carbon\Carbon::parse($item->task->created_at)->format('d-m-Y')}}</span> </td>
+                            <td><span class="">{{Carbon\Carbon::parse($item->task->created_at)->format('d-m-Y h:m')}}</span> </td>
                             @if (Auth()->user()->role == 1)
                               <td>
                                 <form class="user"  action="{{route('deleteTracing', $item->id)}}" method="post">

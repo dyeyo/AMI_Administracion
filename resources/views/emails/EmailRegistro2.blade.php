@@ -30,7 +30,6 @@
       <h3 style="text-align: center;">{{ $student['nombre'] }} Gracias por elegirnos.</h3>
       <img style='display: block; width: 100%; padding-bottom: 40px;' src='{{ asset('assets/img/01.png') }}'>
       <img style='display: block; width: 100%; padding-bottom: 40px;' src='{{ asset('assets/img/02.png') }}'>
-      <img style='display: block; width: 100%; padding-bottom: 40px;' src='{{ asset('assets/img/03.png') }}'>
       <p>{{$item->firstText}}</p>
       <img src="{{asset('images/'.$item->image)}}" style="width: 50%" alt="">
       <h3 style="text-align: center;">Proceso de Matrícula</h3>

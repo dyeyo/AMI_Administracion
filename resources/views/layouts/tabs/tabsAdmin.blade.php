@@ -109,7 +109,7 @@
             </div>
             <div class="form-group">
               <label>Tipo de Contrato</label>
-              <select class="form-control" style="width: 100%" name="tipoContrato" id="tipoContrato">
+              <select class="form-control select2" onchange="dataTemplateEmailSendContract()" style="width: 100%" name="tipoContrato" id="tipoContrato">
                 @foreach ($contracts as $contract)
                   <option value="{{$contract->id}}">{{$contract->title}}</option>
                 @endforeach
@@ -118,6 +118,7 @@
             <div class="form-group">
               <label>Link de pago</label>
               <input type="hidden" name="idtemplate" id="idtemplate"/>
+              <input type="text" name="contratoNum" id="contratoNum"/>
               <input type="text" class="form-control" name="linkPago" id="linkPago" placeholder="Ingresa el link de pago" />
             </div>
             <div class="form-group">

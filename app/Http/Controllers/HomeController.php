@@ -52,7 +52,7 @@ class HomeController extends Controller
     public function sendinfopay(Request $request)
     {
       $idnum= intval($request->tipoContrato);
-      $idnums= str_replace('^','');
+      $idnums= str_replace('^','',$idnum);
       dd($idnums);
       if($request->email){
         if($request->tipoContrato == 1){

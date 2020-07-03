@@ -19,10 +19,12 @@ function dataClient() {
 
 function dataTemplateEmailSendContract() {
   var tipoContrato = $("#tipoContrato").val();
-  $("#contratoNum").val(tipoContrato);
+  console.log(tipoContrato);
+  
   if (tipoContrato != 0) {
     $.getJSON(route("loadTemplate", { id: tipoContrato }), function (data) {
       console.log(data);
+      $("#contratoNum").val(tipoContrato);
       $("#idtemplate").val(data[0].emailId);
     });
   }

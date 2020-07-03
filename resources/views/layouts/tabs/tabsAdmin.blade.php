@@ -110,6 +110,7 @@
             <div class="form-group">
               <label>Tipo de Contrato</label>
               <select class="form-control select2" onchange="dataTemplateEmailSendContract()" style="width: 100%" name="tipoContrato" id="tipoContrato">
+                <option value=""></option>
                 @foreach ($contracts as $contract)
                   <option value="{{$contract->id}}">{{$contract->title}}</option>
                 @endforeach

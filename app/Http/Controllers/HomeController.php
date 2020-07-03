@@ -51,7 +51,9 @@ class HomeController extends Controller
 
     public function sendinfopay(Request $request)
     {
-      dd($request->tipoContrato);
+      $s = $request->tipoContrato;
+      $e = substr($s,1);
+      dd($e);
       if($request->email){
         if($request->tipoContrato == "^1"){
           Mail::to($request->email)->send(new MailSendemailpay());

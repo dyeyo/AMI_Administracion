@@ -51,7 +51,6 @@ class HomeController extends Controller
 
     public function sendinfopay(Request $request)
     {
-      dd($request->all());
       dd($request->tipoContrato);
       if($request->email){
         if($request->tipoContrato == "1"){

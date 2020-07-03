@@ -53,14 +53,13 @@ class HomeController extends Controller
     {
       if($request->email){
         if($request->contratoNum == "1"){
-
           Mail::to($request->email)->send(new MailSendemailpay());
           //Mail::to(env('EMAIL_ADMIN'))->send(new MailSendmailPayAdmin());
           Session::flash('message', 'Correo electronico enviado con exito');
           return redirect()->route('home');
         }
         elseif($request->contratoNum == "2"){
-          Mail::to($request->email)->send(new MailSendemailpayCou1600());
+          Mail::to($request->email)->send(new MailSendemailpay());
           //Mail::to(env('EMAIL_ADMIN'))->send(new MailSendmailPayAdmin());
           Session::flash('message', 'Correo electronico enviado con exito');
           return redirect()->route('home');

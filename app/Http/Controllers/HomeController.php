@@ -51,21 +51,23 @@ class HomeController extends Controller
 
     public function sendinfopay(Request $request)
     {
+
+      dd($request->tipoContrato);
       if($request->email){
         if($request->tipoContrato == "1"){
           Mail::to($request->email)->send(new MailSendemailpay());
-          Mail::to(env('EMAIL_ADMIN'))->send(new MailSendmailPayAdmin());
+          //Mail::to(env('EMAIL_ADMIN'))->send(new MailSendmailPayAdmin());
           Session::flash('message', 'Correo electronico enviado con exito');
           return redirect()->route('home');
         }
         if($request->tipoContrato == "2" || $request->tipoContrato == "3"){
           Mail::to($request->email)->send(new MailSendemailpayCou1600());
-          Mail::to(env('EMAIL_ADMIN'))->send(new MailSendmailPayAdmin());
+          //Mail::to(env('EMAIL_ADMIN'))->send(new MailSendmailPayAdmin());
           Session::flash('message', 'Correo electronico enviado con exito');
           return redirect()->route('home');
         }else{
           Mail::to($request->email)->send(new MailSendemailpayDefault());
-          Mail::to(env('EMAIL_ADMIN'))->send(new MailSendmailPayAdmin());
+          //Mail::to(env('EMAIL_ADMIN'))->send(new MailSendmailPayAdmin());
           Session::flash('messageErrorEmail', 'Correo electronico enviado con exito');
           return redirect()->route('home');
         }

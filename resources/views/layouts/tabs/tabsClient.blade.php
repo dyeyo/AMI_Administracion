@@ -66,7 +66,7 @@
                   <option value="{{$contract->id}}">{{$contract->title}}</option>
                 @endforeach
               </select>
-              <input type="hidden" name="idtemplate" id="idtemplate"/>
+              <input type="hidden" name="idtemplate" id=""/>
             </div>
             <div class="form-group">
               <label>Link de pago</label>

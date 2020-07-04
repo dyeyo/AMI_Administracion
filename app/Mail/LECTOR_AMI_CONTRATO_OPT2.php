@@ -5,15 +5,17 @@ namespace App\Mail;
 use App\Clients;
 use App\TemplateEmail;
 use Illuminate\Bus\Queueable;
-use Illuminate\Http\Request;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Http\Request;
 
-class Sendemailpay extends Mailable
+class LECTOR_AMI_CONTRATO_OPT2 extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public function __construct(){}
+    public function __construct()
+    {
+    }
 
     public function build(Request $request)
     {
@@ -21,7 +23,7 @@ class Sendemailpay extends Mailable
       $student = $request->all();
       $idContrato = intval($request->tipoContrato);
       $idAsesor = Auth()->user()->id;
-      $templateEmails = TemplateEmail::where('type',1)->where('id',$request->tipoContrato)->get();
-      return $this->view('emails.EmailRegistro',compact('student','idAsesor','templateEmails','idContrato','client'));
+      $templateEmails = TemplateEmail::where('id',2)->get();
+      return $this->view('emails.EmialInfo',compact('student','idAsesor','templateEmails','idContrato','client'));
     }
-}
+  }

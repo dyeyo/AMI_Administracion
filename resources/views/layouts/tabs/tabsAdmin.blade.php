@@ -118,8 +118,6 @@
             </div>
             <div class="form-group">
               <label>Link de pago</label>
-              <input type="hidden" name="idtemplate" id="idtemplate"/>
-              <input type="text" name="contratoNum" id="contratoNum"/>
               <input type="text" class="form-control" name="linkPago" id="linkPago" placeholder="Ingresa el link de pago" />
             </div>
             <div class="form-group">

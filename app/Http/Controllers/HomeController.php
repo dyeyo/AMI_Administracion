@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Clients;
 use App\Contracts;
-use App\Mail\MailSendemailpayCou1600;
+use App\Mail\LECTOR_AMI_CONTRATO;
+use App\Mail\LECTOR_AMI_CONTRATO_OPT2;
+use App\Mail\LECTOR_AMI_REGISTRO;
+use App\Mail\LECTOR_AMI_REGISTRO2;
 use App\Mail\MailSendemailpayDefault;
-use App\Mail\MailSendmailPayAdmin;
 use App\Mail\Sendemailpay as MailSendemailpay;
 use App\User;
 use Illuminate\Http\Request;
@@ -52,19 +54,14 @@ class HomeController extends Controller
     public function sendinfopay(Request $request)
     {
       if($request->email){
-        if($request->contratoNum == "1"){
-          Mail::to($request->email)->send(new MailSendemailpay());
+        if($request->tipoContrato == "1"){
+          Mail::to($request->email)->send(new LECTOR_AMI_CONTRATO());
           Session::flash('message', 'Correo electronico enviado con exito');
           return redirect()->route('home');
         }
-        elseif($request->contratoNum == "2"){
-          Mail::to($request->email)->send(new MailSendemailpayCou1600());
-          Session::flash('message', 'Correo 2 electronico enviado con exito');
-          return redirect()->route('home');
-        }
-        elseif($request->contratoNum == "3"){
-          Mail::to($request->email)->send(new MailSendemailpayCou1600());
-          Session::flash('message', 'Correo 3 electronico enviado con exito');
+        elseif($request->tipoContrato == "2" || $request->tipoContrato == "3"){
+          Mail::to($request->email)->send(new LECTOR_AMI_CONTRATO_OPT2());
+          Session::flash('message', 'Correo electronico enviado con exito');
           return redirect()->route('home');
         }else{
           Mail::to($request->email)->send(new MailSendemailpayDefault());

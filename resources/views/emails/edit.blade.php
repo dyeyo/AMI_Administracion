@@ -37,6 +37,7 @@
                 <input type="file" name="image" id="image" value="{{$templateEmail->image}}">
               </div>
               <button type="submit" class="btn btn-primary btn-block">Editar</button>
+              <a href="/correos" class="btn btn-warning">Cancelar</a>
             </form>
           </div>
         </div>

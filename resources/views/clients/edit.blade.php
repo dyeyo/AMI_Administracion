@@ -100,6 +100,7 @@
                   </div>
               </div>
               <button type="submit" class="btn btn-primary">Editar Cliente</button>
+              <a href="/clientes" class="btn btn-warning">Cancelar</a>
             </form>
           </div>
         </div>

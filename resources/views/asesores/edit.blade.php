@@ -92,6 +92,7 @@
               </div>
             </div>
               <button type="submit" class="btn btn-primary">Editar Contrato</button>
+              <a href="/asesores" class="btn btn-warning">Cancelar</a>
             </form>
           </div>
         </div>

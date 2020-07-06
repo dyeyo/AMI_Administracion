@@ -40,6 +40,7 @@
                 </div>
               </div>
               <button type="submit" class="btn btn-primary">Editar Tarea</button>
+              <a href="/tareas" class="btn btn-warning">Cancelar</a >
             </form>
           </div>
         </div>

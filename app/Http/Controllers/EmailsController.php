@@ -68,4 +68,9 @@ class EmailsController extends Controller
   {
     return response()->json(Contracts::select('emailId')->where('id',$id)->get());
   }
+
+  public function loadTemplatePromotion($id)
+  {
+    return response()->json(Contracts::select('emailId')->where('id',$id)->get());
+  }
 }

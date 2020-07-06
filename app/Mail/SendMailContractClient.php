@@ -20,6 +20,7 @@ class SendMailContractClient extends Mailable
     {
       $contract = $request->all();
       $templateEmails = TemplateEmail::where('type',2)->get();
+
       return $this->view('emails.contractClient',compact('contract','templateEmails'));
     }
 }

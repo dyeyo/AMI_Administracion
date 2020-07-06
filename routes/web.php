@@ -24,7 +24,9 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/seguimiento/{id}',  'ClientsController@tracing')->name('tracing');
   Route::post('/seguimiento/crear',  'ClientsController@storeTracing')->name('storeTracing');
   Route::get('/loadClients/{id}',  'HomeController@loadClient')->name('loadClient');
+  Route::get('/loadClientSendEmail/{id}',  'HomeController@loadClientSendEmail')->name('loadClientSendEmail');
   Route::post('/clientes/crear', 'ClientsController@store')->name('createClient');
+  Route::get('/correo/template/promocion/{id}', 'EmailsController@loadTemplatePromotion')->name('loadTemplatePromotion');
 
   Route::group(['middleware' => ['admin']], function () {
     //EMIALS

@@ -37,47 +37,84 @@
   </div>
 </div>
 <div class="tab-pane " id="tabs-2" role="tabpanel">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 formcontent">
-          <h1>Confirmación de Inscripción</h1>
-          <form class="ui form" id="formularioInfoPago" action="{{route('sendinfopay')}}" method="POST">
-            {{ method_field('post') }}
-            {{csrf_field()}}
-            <div class="alert alert-info" role="alert">
-              <label>Información del Titular del Contrato</label>
-              <div class="form-group col-md-12">
-                <select class="form-control datoCliente select2" onchange="dataClient()" style="width: 100%" id="select2" name="nombreEstudiante">
-                  <option value=""></option>
-                  @foreach ($clients as $client)
-                    <option value="{{$client->id}}">{{$client->name}}</option>
-                  @endforeach
-                </select>
-              <input type="hidden" name="email" id="email"/>
-              <input type="hidden" name="scholl" id="scholl"/>
-              <input type="hidden" name="nombre" id="nombre"/>
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Tipo de Contrato</label>
-              <select class="form-control select2" style="width: 100%" onchange="dataTemplateEmailSendContract()" name="tipoContrato" id="tipoContrato">
-                <option value="">Debes seleccionar una opción</option>
-                @foreach ($contracts as $contract)
-                  <option value="{{$contract->id}}">{{$contract->title}}</option>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 formcontent">
+        <h1>Confirmación de Inscripción</h1>
+        <form class="ui form" id="formularioInfoPago" action="{{route('sendinfopay')}}" method="POST">
+          {{ method_field('post') }}
+          {{csrf_field()}}
+          <div class="alert alert-info" role="alert">
+            <label>Información del Titular del Contrato</label>
+            <div class="form-group col-md-12">
+              <select class="form-control datoCliente select2" onchange="dataClient()" style="width: 100%" name="nombreEstudiante">
+                <option value=""></option>
+                @foreach ($clients as $client)
+                  <option value="{{$client->id}}">{{$client->name}}</option>
                 @endforeach
               </select>
-              <input type="hidden" name="idtemplate" id=""/>
+            <input type="hidden" name="email" id="email"/>
+            <input type="hidden" name="scholl" id="scholl"/>
+            <input type="hidden" name="nombre" id="nombre"/>
+            <input type="hidden" name="idtemplate" id="idtemplate"/>
             </div>
-            <div class="form-group">
-              <label>Link de pago</label>
-              <input type="text" class="form-control" name="linkPago" id="linkPago" placeholder="Ingresa el link de pago" />
-            </div>
-            <div class="form-group">
-                <input type="hidden" name="emailAsesor" id="emailAsesor" value="{{Auth()->user()->email}}" />
-            </div>
-            <button type="submit" id="infopago" class="btn btn-success btn-block"> Enviar email </button>
-          </form>
-        </div>
+          </div>
+          <div class="form-group">
+            <label>Tipo de Contrato</label>
+            <select class="form-control select2" onchange="dataTemplateEmailSendContract()" style="width: 100%" name="tipoContrato" id="tipoContrato">
+              <option value=""></option>
+              @foreach ($contracts as $contract)
+                <option value="{{$contract->id}}">{{$contract->title}}</option>
+              @endforeach
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Link de pago</label>
+            <input type="text" class="form-control" name="linkPago" id="linkPago" placeholder="Ingresa el link de pago" />
+          </div>
+          <div class="form-group">
+              <input type="hidden" name="emailAsesor" id="emailAsesor" value="{{Auth()->user()->email}}" />
+          </div>
+          <button type="submit" id="infopago" class="btn btn-success btn-block"> Enviar email </button>
+        </form>
       </div>
     </div>
   </div>
+</div>
+<div class="tab-pane " id="tabs-3" role="tabpanel">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 formcontent">
+        <h1>Envio de correos promocionales</h1>
+        <form class="ui form" id="formularioInfoPago" action="{{route('sendinfopay')}}" method="POST">
+          {{ method_field('post') }}
+          {{csrf_field()}}
+          <div class="alert alert-info" role="alert">
+            <label>Nombre del Cliente</label>
+            <div class="form-group col-md-12">
+              <select class="form-control datoClienteEmail select2" onchange="dataClientEmial()" style="width: 100%" name="nombreEstudiante">
+                <option value=""></option>
+                @foreach ($allClients as $client)
+                  <option value="{{$client->id}}">{{$client->name}}</option>
+                @endforeach
+              </select>
+            <input type="hidden" name="email" id="emailEmail"/>
+            <input type="hidden" name="name" id="nameEmail"/>
+            <input type="hidden" name="idtemplate" id="idtemplateEmial"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Tipo de Contrato</label>
+            <select class="form-control select2" onchange="dataTemplateEmailSendEmialPromotion()" style="width: 100%" name="tipoContrato" id="promocion">
+              <option value=""></option>
+              @foreach ($emailsPromotions as $contract)
+                <option value="{{$contract->id}}">{{$contract->title}}</option>
+              @endforeach
+            </select>
+          </div>
+          <button type="submit" id="infopago" class="btn btn-success btn-block"> Enviar email </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

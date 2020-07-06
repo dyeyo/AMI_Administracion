@@ -28,7 +28,7 @@ class HomeController extends Controller
                         ->where('asesorId',Auth()->user()->id)
                         ->get();
       $contracts = Contracts::all();
-      //dd($contracts);
+      $emailsPromotions = Contracts::where('emailId','!=',null)->get();
       $clientesPaySuccessCount = Clients::with('asesor')->where('pay','SI')->count();
       $clientesPayPendingCount = Clients::with('asesor')->where('pay',null)->count();
       $asesorCount  = User::where('role',2)->count();
@@ -43,9 +43,10 @@ class HomeController extends Controller
                                     ->count();
 
       $clients = Clients::where('pay',null)->get();
+      $allClients = Clients::all();
       return view('home',compact('clientesPaySuccess','clientesPayPending','clientesAsesor','contracts',
       'clientesPaySuccessCount','clientesPayPendingCount','asesorCount','clientesPaySuccessAsesorCount',
-      'clientesPayPendingAsesorCount','clients'));
+      'clientesPayPendingAsesorCount','clients','emailsPromotions','allClients'));
     }
 
     public function sendinfopay(Request $request)
@@ -62,17 +63,22 @@ class HomeController extends Controller
           return redirect()->route('home');
         }else{
           Mail::to($request->email)->send(new MailSendemailpayDefault());
-          Session::flash('messageErrorEmail', 'Correo electronico enviado con exito');
+          Session::flash('message', 'Correo electronico enviado con exito');
           return redirect()->route('home');
         }
       }else{
-        Session::flash('message', 'Ocurrio un error, por favor selecciona nuevamente el cliente o actualiza la pagina');
+        Session::flash('messageErrorEmail', 'Ocurrio un error, por favor selecciona nuevamente el cliente o actualiza la pagina');
         return redirect()->route('home');
       }
 
     }
 
     public function loadClient($id)
+    {
+      return response()->json(Clients::where('id', $id)->get());
+    }
+
+    public function loadClientSendEmail($id)
     {
       return response()->json(Clients::where('id', $id)->get());
     }

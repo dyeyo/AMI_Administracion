@@ -35,6 +35,18 @@
       <p>{{$item->firstText}}</p>
       <img src="{{asset('images/'.$item->image)}}" style="width: 50%" alt="">
       <h3 style="text-align: center;">Proceso de Matrícula</h3>
+      {{-- <a  style="
+        background: #ec1a24;
+        color: #fff;
+        display: block;
+        padding: 5px 25px;
+        text-align: center;
+        border-radius: 25px;
+        font-size: 24px;
+        text-decoration: none;
+        width: 70%;
+        margin: auto;" href="https://crm.lectorami.co/contrato?asesor={{$idAsesor}}&contrato={{$idContrato}}&idenClient={{encrypt($client->id)}}&name={{$client->name}}&addrees={{encrypt($client->addrees)}}&city={{encrypt($client->city)}}&numIdenficication={{encrypt($client->numIdenficication)}}&phone={{encrypt($client->phone)}}&email={{encrypt($client->email)}}&scholl={{encrypt($client->scholl)}}" target="_blank">Diligenciar Contrato</a>--}}
+      <h3 style="text-align: center;">
       <a  style="
         background: #ec1a24;
         color: #fff;
@@ -45,7 +57,7 @@
         font-size: 24px;
         text-decoration: none;
         width: 70%;
-        margin: auto;" href="https://crm.lectorami.co/contrato?asesor={{$idAsesor}}&contrato={{$idContrato}}&idenClient={{encrypt($client->id)}}&name={{$client->name}}&addrees={{encrypt($client->addrees)}}&city={{encrypt($client->city)}}&numIdenficication={{encrypt($client->numIdenficication)}}&phone={{encrypt($client->phone)}}&email={{encrypt($client->email)}}&scholl={{encrypt($client->scholl)}}" target="_blank">Diligenciar Contrato</a>
+        margin: auto;" href="http://127.0.0.1:8000/contrato?asesor={{$idAsesor}}&contrato={{$idContrato}}&idenClient={{encrypt($client->id)}}&name={{$client->name}}&addrees={{encrypt($client->addrees)}}&city={{encrypt($client->city)}}&numIdenficication={{encrypt($client->numIdenficication)}}&phone={{encrypt($client->phone)}}&email={{encrypt($client->email)}}&scholl={{encrypt($client->scholl)}}" target="_blank">Diligenciar Contrato</a>
       <h3 style="text-align: center;">
         Desde el siguiente link puedes hacer tu pago
       </h3>

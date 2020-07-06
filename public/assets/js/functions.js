@@ -15,23 +15,38 @@ aca esta fallando tal cosa
 
 function dataClient() {
   var datoCliente = $(".datoCliente").val();
-  if (datoCliente != 0) {
-    $.getJSON(route("loadClient", { id: datoCliente }), function (data) {
-      $("#email").val(data[0].email);
-      $("#nombre").val(data[0].name);
-      $("#scholl").val(data[0].scholl);
-    });
-  }
+  $.getJSON(route("loadClient", { id: datoCliente }), function (data) {
+    console.log(data);
+    $("#name").val(data[0].name);
+    $("#email").val(data[0].email);
+  });
+}
+
+function dataClientEmial() {
+  var datoCliente = $(".datoClienteEmail").val();
+  $.getJSON(route("loadClientSendEmail", { id: datoCliente }), function (data) {
+    console.log(data);
+    $("#emailEmail").val(data[0].email);
+    $("#nameEmail").val(data[0].name);
+  });
 }
 
 function dataTemplateEmailSendContract() {
   var tipoContrato = $("#tipoContrato").val();
-  console.log(tipoContrato);
-
   if (tipoContrato != 0) {
     $.getJSON(route("loadTemplate", { id: tipoContrato }), function (data) {
       console.log(data);
       $("#idtemplate").val(data[0].emailId);
+    });
+  }
+}
+
+function dataTemplateEmailSendEmialPromotion() {
+  var tipoContrato = $("#promocion").val();
+  if (tipoContrato != 0) {
+    $.getJSON(route("loadTemplatePromotion", { id: tipoContrato }), function (data) {
+      console.log(data[0].emailId);
+      $("#idtemplateEmial").val(data[0].emailId);
     });
   }
 }

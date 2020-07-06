@@ -26,9 +26,10 @@ class ContractController extends Controller
     $contractsCount = Contracts::count();
     $s = $_GET['contrato'];
     $contract = Contracts::where('id',$_GET['contrato'])->get();
+    $tituloContrato = $contract[0]->title;
     $date_now = date("Y-m-d");
     $date_now_hours = date("Y-m-d H:i:s");
-    return view('formsContrato.contract',compact('contractsCount','contract','date_now','date_now_hours'));
+    return view('formsContrato.contract',compact('contractsCount','contract','date_now','date_now_hours','tituloContrato'));
   }
 
   public function store(Request $request)
@@ -72,6 +73,7 @@ class ContractController extends Controller
     $client->terminosCompra = $request->terminosCompra;
     $client->terminosCusro = $request->terminosCusro;
     $client->asesorId  = $request->asesorId;
+    $client->titleContract  = $request->titleContract;
     $client->update();
 
     Mail::to($request->email)->send(new  SendMailContractClient());

@@ -28,6 +28,7 @@ class CreateClientsTable extends Migration
         $table->string('terminos')->nullable();
         $table->string('terminosCompra')->nullable();
         $table->string('terminosCusro')->nullable();
+        $table->string('titleContract')->nullable();
         $table->bigInteger('asesorId')->unsigned();
 
         $table->foreign('asesorId')->references('id')->on('users');

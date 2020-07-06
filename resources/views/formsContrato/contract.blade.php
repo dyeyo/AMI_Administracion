@@ -15,6 +15,7 @@
           {{csrf_field()}}
           <input type="hidden" name="asesorId" id="asesorId" value="{{$_GET["asesor"]}}" />
           <input type="hidden" name="clientId" id="clientId" value="{{decrypt($_GET["idenClient"])}}" />
+          <input type="hidden" name="titleContract" id="titleContract" value="{{$tituloContrato}}" />
           <div class="form-group">
             <label>Nombre Completo del Titular del Contrato</label>
             <input

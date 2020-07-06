@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class LECTOR_AMI_CONTRATO extends Mailable
+class LectorAmiContado extends Mailable
 {
     use Queueable, SerializesModels;
 

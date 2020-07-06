@@ -9,13 +9,12 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Http\Request;
 
-class LECTOR_AMI_CONTRATO_OPT2 extends Mailable
+class lectorAmiCuotas  extends Mailable
 {
     use Queueable, SerializesModels;
 
     public function __construct()
-    {
-    }
+    {}
 
     public function build(Request $request)
     {

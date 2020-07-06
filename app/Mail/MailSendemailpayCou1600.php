@@ -23,7 +23,6 @@ class MailSendemailpayCou1600 extends Mailable
       $student = $request->all();
       $idContrato = intval($request->tipoContrato);
       $idAsesor = Auth()->user()->id;
-      //$templateEmails = TemplateEmail::where('type',1)->where('id',$request->tipoContrato)->get();
       $templateEmails = TemplateEmail::where('type',1)->get();
       return $this->view('emails.EmailRegistro2',compact('student','idAsesor','templateEmails','idContrato','client'));
     }

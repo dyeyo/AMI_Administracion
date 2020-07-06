@@ -5,6 +5,13 @@ function contrato() {
   let contenido = $(".textoContrato").text();
   $("#contract").val(contenido);
 }
+7
+/*
+TODO:
+estos debo hacer que
+FIXME:
+aca esta fallando tal cosa
+*/
 
 function dataClient() {
   var datoCliente = $(".datoCliente").val();

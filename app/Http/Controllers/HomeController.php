@@ -43,7 +43,7 @@ class HomeController extends Controller
                                     ->count();
 
       $clients = Clients::where('pay',null)->get();
-      $allClients = Clients::all();
+      $allClients = Clients::where('pay','!=',null)->get();
       return view('home',compact('clientesPaySuccess','clientesPayPending','clientesAsesor','contracts',
       'clientesPaySuccessCount','clientesPayPendingCount','asesorCount','clientesPaySuccessAsesorCount',
       'clientesPayPendingAsesorCount','clients','emailsPromotions','allClients'));

@@ -104,7 +104,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label>Tipo de Contrato</label>
+            <label>Tipo de Email Promocional</label>
             <select class="form-control select2" onchange="dataTemplateEmailSendEmialPromotion()" style="width: 100%" name="tipoContrato" id="promocion">
               <option value=""></option>
               @foreach ($emailsPromotions as $contract)

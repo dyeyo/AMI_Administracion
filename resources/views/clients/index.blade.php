@@ -15,8 +15,10 @@
           </ol>
           <button type="button" class="btn btn-info d-none d-lg-block m-l-15" data-toggle="modal" data-target="#exampleModal">
           <i class="fa fa-plus-circle"></i> Agregar cliente</button>
-          <a href="{{ route('loadExcel') }}" class="btn btn-success d-none d-lg-block m-l-15">
-          <i class="fa fa-file-excel"></i> Descargar Datos</a>
+          @if (Auth()->user()->role == 1)
+            <a href="{{ route('loadExcel') }}" class="btn btn-success d-none d-lg-block m-l-15">
+            <i class="fa fa-file-excel"></i> Descargar Datos</a>
+          @endIf
         </div>
       </div>
     </div>
@@ -42,7 +44,7 @@
             @endif
             @if (Auth()->user()->role == 1)
             <h2>Estudiantes Matriculados</h2>
-              <div class="">
+              <div class="table-responsive">
                 <table class="table" id="tabla">
                   <thead>
                     <tr>
@@ -86,7 +88,7 @@
               </div>
             @else
               <h2>Seguimiento de mis Clientes Matriculados</h2>
-              <div class="">
+              <div class="table-responsive">
                 <table class="table" id="tabla">
                   <thead>
                     <tr>
@@ -227,7 +229,7 @@
                     @endforeach
                   </tbody>
                 </table>
-              </div> 
+              </div>
             @endIf
 
           </div>

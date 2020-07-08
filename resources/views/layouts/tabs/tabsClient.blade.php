@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-12 formcontent">
         <h1>Mis Clientes Matriculados</h1>
-        <div class="table-responsive">
+        <div class="table-responsive-sm">
           <table class="table">
             <thead>
               <tr>

@@ -89,7 +89,6 @@
               </div>
               <div class="form-group row">
                   <label for="phone" class="col-md-12 col-form-label">Numero de Telefono</label>
-
                   <div class="col-md-12">
                       <input value="{{$client->phone}}" id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone">
                       @error('phone')
@@ -97,6 +96,13 @@
                               <strong>{{ $message }}</strong>
                           </span>
                       @enderror
+                  </div>
+              </div>
+              <div class="form-group row">
+                  <label for="phone" class="col-md-12 col-form-label">Contrato</label>
+                  <div class="col-md-12">
+                    <textarea class="form-control" id="" rows="10" style="resize: none" disabled>{{$client->contract}}</textarea>
+                    <a href="{{ route('dowloadContract',$client->id ) }}">Descargar Contrato</a>
                   </div>
               </div>
               <button type="submit" class="btn btn-primary">Editar Cliente</button>

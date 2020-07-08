@@ -44,7 +44,7 @@
             @endif
             @if (Auth()->user()->role == 1)
             <h2>Estudiantes Matriculados</h2>
-              <div class="table-responsive">
+              <div class="table-responsive-sm">
                 <table class="table" id="tabla">
                   <thead>
                     <tr>
@@ -53,7 +53,7 @@
                       <th>Ciudad</th>
                       <th>Dirección</th>
                       <th>Telefono</th>
-                      <th>Correo</th>
+                      <th>Tipo de Contrato</th>
                       <th>Asesor</th>
                       <th>Fecha de Registro</th>
                       <th>Seguimiento</th>
@@ -70,7 +70,7 @@
                         <td>{{$client->city}}</td>
                         <td>{{$client->addrees}}</td>
                         <td>{{$client->phone}}</td>
-                        <td>{{$client->email}}</td>
+                        <td>{{$client->titleContract}}</td>
                         <td>{{$client->asesor->name}}</td>
                         <td>{{ Carbon\Carbon::parse($client->created_at)->format('d-m-Y') }}</td>
                         <td>
@@ -88,7 +88,7 @@
               </div>
             @else
               <h2>Seguimiento de mis Clientes Matriculados</h2>
-              <div class="table-responsive">
+              <div class="table-responsive-sm">
                 <table class="table" id="tabla">
                   <thead>
                     <tr>
@@ -98,6 +98,7 @@
                       <th>Dirección</th>
                       <th>Telefono</th>
                       <th>Correo</th>
+                      <th>Tipo de contrato</th>
                       <th>Asesor</th>
                       <th>Fecha de Registro</th>
                       <th>Seguimiento</th>
@@ -115,6 +116,7 @@
                         <td>{{$client->addrees}}</td>
                         <td>{{$client->phone}}</td>
                         <td>{{$client->email}}</td>
+                        <td>{{$client->titleContract}}</td>
                         <td>{{$client->asesor->name}}</td>
                         <td>{{ Carbon\Carbon::parse($client->created_at)->format('d-m-Y') }}</td>
                         <td>
@@ -132,7 +134,7 @@
               </div>
 
               <h2>Seguimiento de mis Clientes Pendientes por Matricular</h2>
-              <div class="">
+              <div class="table-responsive-sm">
                 <table class="table" id="tabla">
                   <thead>
                     <tr>
@@ -142,6 +144,7 @@
                       <th>Dirección</th>
                       <th>Telefono</th>
                       <th>Correo</th>
+                    <th>Tipo de Contrato</th>
                       <th>Asesor</th>
                       <th>Fecha de Registro</th>
                       <th>Seguimiento</th>
@@ -159,6 +162,7 @@
                         <td>{{$client->addrees}}</td>
                         <td>{{$client->phone}}</td>
                         <td>{{$client->email}}</td>
+                        <td>{{$client->titleContract}}</td>
                         <td>{{$client->asesor->name}}</td>
                         <td>{{ Carbon\Carbon::parse($client->created_at)->format('d-m-Y') }}</td>
                         <td>
@@ -188,7 +192,7 @@
             @endif
             @if (Auth()->user()->role == 1)
               <h2>Estudiantes Por Asesor</h2>
-              <div class="">
+              <div class="table-responsive-sm">
                 <table class="table" id="tabla">
                   <thead>
                     <tr>
@@ -198,6 +202,7 @@
                       <th>Dirección</th>
                       <th>Telefono</th>
                       <th>Correo</th>
+                    <th>Tipo de Contrato</th>
                       <th>Asesor</th>
                       <th>Fecha de Registro</th>
                       <th>Seguimiento</th>
@@ -215,6 +220,7 @@
                         <td>{{$client->addrees}}</td>
                         <td>{{$client->phone}}</td>
                         <td>{{$client->email}}</td>
+                        <td>{{$client->titleContract}}</td>
                         <td>{{$client->asesor->name}}</td>
                         <td>{{ Carbon\Carbon::parse($client->created_at)->format('d-m-Y') }}</td>
                         <td>

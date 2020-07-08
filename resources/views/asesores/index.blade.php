@@ -38,7 +38,7 @@
                   @endforeach
               </div>
             @endif
-            <div class="table-responsive">
+            <div class="table-responsive-sm">
               <table class="table" id="tabla">
                 <thead>
                   <tr>

@@ -32,7 +32,7 @@
                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
               </div>
             @endif
-            <div class="table-responsive">
+            <div class="table-responsive-sm">
               <table class="table">
                 <thead>
                   <tr>

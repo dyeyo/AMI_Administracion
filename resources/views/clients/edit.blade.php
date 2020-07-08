@@ -107,6 +107,12 @@
               </div>
               <button type="submit" class="btn btn-primary">Editar Cliente</button>
               <a href="/clientes" class="btn btn-warning">Cancelar</a>
+
+            </form>
+            <form class="user"  action="{{route('deleteClient', $client->id)}}" method="post">
+              {{ method_field('delete') }}
+              {{csrf_field()}}
+              <button class="btn btn-danger pull-right" onclick="return confirm('¿Esta seguro de eliminar este registro?')"  type="submit">ELIMINAR</button>
             </form>
           </div>
         </div>

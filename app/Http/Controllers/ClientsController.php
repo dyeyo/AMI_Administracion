@@ -90,4 +90,11 @@ class ClientsController extends Controller
     $pdf = \PDF::loadView('clients.contrato', compact('contrato'));
     return $pdf->download('Contrato.pdf');
   }
+
+  public function delete($id)
+  {
+    Clients::find($id)->delete();
+    Session::flash('message', 'Cliente Eliminado con Exito');
+    return redirect()->route('clients');
+  }
 }

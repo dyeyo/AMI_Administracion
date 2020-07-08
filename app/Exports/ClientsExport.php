@@ -20,11 +20,10 @@ class ClientsExport implements FromCollection, WithHeadings
       'Telefono/Celular',
       'Correo Electronico',
       'Colegio/Universidad',
-      'Pago',
       'Tipo de Contrato',
+      'Pago',
       'Terminos y Condiciones',
       'Terminos de Compra',
-      'Terminos de Curso',
       'Terminos de Curso',
     ];
   }

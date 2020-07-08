@@ -43,7 +43,7 @@ class ClientsExport implements FromCollection, WithHeadings
       'terminos',
       'terminosCompra',
       'terminosCusro'
-    )
+    )->where('pay', '!=', null)
       ->get();
   }
 }

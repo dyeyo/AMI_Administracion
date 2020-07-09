@@ -27,7 +27,7 @@
       </div>
   </nav>
 </header>
-<aside class="left-sidebar" style="background: #195fa5;">
+<aside class="left-sidebar" style="background: #22222;">
     <!-- Sidebar scroll-->
     <div class="scroll-sidebar">
         <!-- User Profile-->

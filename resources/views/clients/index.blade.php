@@ -8,23 +8,21 @@
         <h4 class="text-themecolor">Bienvenido</h4>
       </div>
       <div class="col-md-7 align-self-center text-right">
-        <div class="d-flex justify-content-end align-items-center">
+        <div class="d-flex justify-content-end align-items-center" aria-label="breadcrumb">
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Inicio</a></li>
             <li class="breadcrumb-item active">Clientes</li>
             <li class="breadcrumb-item">
               <a type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
-                <i class="fa fa-plus-circle"></i> Agregar cliente</a>
+              <i class="fa fa-plus-circle"></i> Agregar cliente</a>
             </li>
             @if (Auth()->user()->role == 1)
               <li>
-                  <a href="{{ route('loadExcel') }}" class="btn btn-success ml-2">
-                  <i class="fa fa-file-excel"></i> Descargar Datos</a>
+                <a href="{{ route('loadExcel') }}" class="btn btn-success ml-2">
+                <i class="fa fa-file-excel"></i> Descargar Datos</a>
               </li>
             @endIf
-
           </ol>
-
         </div>
       </div>
     </div>

@@ -11,11 +11,10 @@ Route::get('/', function () {
     return view('auth.login');
   }
 });
+Route::get('/registro', 'RegisterPublicController@index')->name('registerPublic');
+Route::post('/registro/crear', 'RegisterPublicController@store')->name('createPublic');
 
 Route::get('/contrato', 'ContractController@contract')->name('contract');
-Route::get('/registro', 'ClientsController@registerPublic')->name('registerPublic');
-
-Route::post('/registro/crear', 'ClientsController@storePublic')->name('createClientPublic');
 Route::post('/contrato_pago', 'ContractController@contractPay')->name('contractPay');
 
 Auth::routes();

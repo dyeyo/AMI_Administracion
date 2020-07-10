@@ -12,13 +12,19 @@
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Inicio</a></li>
             <li class="breadcrumb-item active">Clientes</li>
+            <li class="breadcrumb-item">
+              <a type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
+                <i class="fa fa-plus-circle"></i> Agregar cliente</a>
+            </li>
+            @if (Auth()->user()->role == 1)
+              <li>
+                  <a href="{{ route('loadExcel') }}" class="btn btn-success ml-2">
+                  <i class="fa fa-file-excel"></i> Descargar Datos</a>
+              </li>
+            @endIf
+
           </ol>
-          <button type="button" class="btn btn-info d-none d-lg-block m-l-15" data-toggle="modal" data-target="#exampleModal">
-          <i class="fa fa-plus-circle"></i> Agregar cliente</button>
-          @if (Auth()->user()->role == 1)
-            <a href="{{ route('loadExcel') }}" class="btn btn-success d-none d-lg-block m-l-15">
-            <i class="fa fa-file-excel"></i> Descargar Datos</a>
-          @endIf
+
         </div>
       </div>
     </div>
@@ -44,7 +50,7 @@
             @endif
             @if (Auth()->user()->role == 1)
             <h2>Estudiantes Matriculados</h2>
-              <div class="table-responsive-sm">
+              <div class="table-responsive">
                 <table class="table" id="tabla">
                   <thead>
                     <tr>
@@ -88,7 +94,7 @@
               </div>
             @else
               <h2>Seguimiento de mis Clientes Matriculados</h2>
-              <div class="table-responsive-sm">
+              <div class="table-responsive">
                 <table class="table" id="tabla">
                   <thead>
                     <tr>
@@ -134,7 +140,7 @@
               </div>
 
               <h2>Seguimiento de mis Clientes Pendientes por Matricular</h2>
-              <div class="table-responsive-sm">
+              <div class="table-responsive">
                 <table class="table" id="tabla">
                   <thead>
                     <tr>
@@ -192,7 +198,7 @@
             @endif
             @if (Auth()->user()->role == 1)
               <h2>Estudiantes Por Asesor</h2>
-              <div class="table-responsive-sm">
+              <div class="table-responsive">
                 <table class="table" id="tabla">
                   <thead>
                     <tr>

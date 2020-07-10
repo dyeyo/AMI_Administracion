@@ -35,6 +35,12 @@ class ClientsController extends Controller
     Session::flash('message', 'Cliente registrado con Exito');
     return redirect()->route('clients');
   }
+  public function storePublic(ClientsRequest $request)
+  {
+    Clients::create($request->all())->save();
+    Session::flash('message', 'Cliente registrado con Exito');
+    return redirect()->route('login');
+  }
 
   public function edit($id)
   {
@@ -96,5 +102,10 @@ class ClientsController extends Controller
     Clients::find($id)->delete();
     Session::flash('message', 'Cliente Eliminado con Exito');
     return redirect()->route('clients');
+  }
+
+  public function registerPublic()
+  {
+    return view('registrerClientes');
   }
 }

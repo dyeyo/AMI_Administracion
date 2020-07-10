@@ -11,8 +11,8 @@
       </div>
       <div class="navbar-collapse" style="background: #71819200;">
           <ul class="navbar-nav mr-auto">
-              <li class="nav-item"> <a class="nav-link sidebartoggler d-md-block waves-effect waves-dark" href="javascript:void(0)">
-                <i class="fas fa-bars"></i></a> </li>
+            <li class="nav-item"> <a class="nav-link sidebartoggler d-md-block waves-effect waves-dark" href="javascript:void(0)">
+            <i class="fas fa-bars"></i></a> </li>
           </ul>
           <ul class="navbar-nav my-lg-0">
             <li class="nav-item right-side-toggle">

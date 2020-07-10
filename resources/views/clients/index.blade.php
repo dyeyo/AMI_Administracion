@@ -1,6 +1,15 @@
 @extends('layouts.app')
-
 @section('content')
+<style>
+@media (max-width: 992px) {
+  .btncelular {
+    display: block !important;
+  }
+  .btngrande{
+    display:none;
+  }
+}
+</style>
 <div class="page-wrapper">
   <div class="container-fluid">
     <div class="row page-titles">
@@ -13,13 +22,19 @@
             <li class="breadcrumb-item"><a href="/">Inicio</a></li>
             <li class="breadcrumb-item active">Clientes</li>
             <li class="breadcrumb-item">
-              <a type="button" class="btn btn-info" data-toggle="modal" data-target="#exampleModal">
+              <a type="button" class="btn btn-info btngrande" data-toggle="modal" data-target="#exampleModal">
               <i class="fa fa-plus-circle"></i> Agregar cliente</a>
+              <a type="button" class="btn btn-info btncelular  btn-circle" data-toggle="modal" style="display:none" data-target="#exampleModal">
+              <i class="fa fa-plus-circle"></i></a>
             </li>
             @if (Auth()->user()->role == 1)
-              <li>
-                <a href="{{ route('loadExcel') }}" class="btn btn-success ml-2">
+              <li class="btngrande">
+                <a href="{{ route('loadExcel') }}" class="btn btn-success btngrande ml-2">
                 <i class="fa fa-file-excel"></i> Descargar Datos</a>
+              </li>
+              <li class="btncelular" style="display:none">
+                <a href="{{ route('loadExcel') }}" class="btn btn-success btn-circle ml-2">
+                <i class="fa fa-file-excel"></i></a>
               </li>
             @endIf
           </ol>

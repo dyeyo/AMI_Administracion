@@ -21,7 +21,19 @@
 
 <body class="skin-default-dark fixed-layout">
 @routes
-
+<style>
+.btncelular{
+  display:none !important;
+}
+@media (max-width: 992px) {
+  .btncelular {
+    display: block !important;
+  }
+  .btngrande{
+    display:none;
+  }
+}
+</style>
    <div class="preloader">
       <div class="loader">
         <div class="loader__figure"></div>

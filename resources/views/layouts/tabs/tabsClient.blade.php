@@ -57,6 +57,7 @@
             <input type="hidden" name="scholl" id="scholl"/>
             <input type="hidden" name="nombre" id="nombre"/>
             <input type="hidden" name="idtemplate" id="idtemplate"/>
+            <input type="hidden" name="linkPago" id="link"/>
             </div>
           </div>
           <div class="form-group">

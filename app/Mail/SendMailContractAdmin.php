@@ -10,14 +10,15 @@ use Illuminate\Queue\SerializesModels;
 
 class SendMailContractAdmin extends Mailable
 {
-    use Queueable, SerializesModels;
+  use Queueable, SerializesModels;
 
-    public function __construct()
-    {}
+  public function __construct()
+  {
+  }
 
-    public function build(Request $request)
-    {
-      $contract = $request->all();
-      return $this->view('emails.contractAdmin',compact('contract'));
-    }
+  public function build(Request $request)
+  {
+    $contract = $request->all();
+    return $this->view('emails.contractAdmin', compact('contract'));
+  }
 }

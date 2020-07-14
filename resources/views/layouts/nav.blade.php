@@ -3,7 +3,7 @@
       <div class="navbar-header">
         <a class="navbar-brand" href="/home">
           <b>
-              <img src="{{ asset('assets/img/logo.png') }}" alt="homepage" style="width: 95%" class="light-logo">
+              <img src="{{ asset('img/logo.png') }}" alt="homepage" style="width: 95%" class="light-logo">
           </b>
           <a class="navbar-brand" href="/home"><b>
            </b>
@@ -27,14 +27,14 @@
       </div>
   </nav>
 </header>
-<aside class="left-sidebar" style="background: #22222;">
+<aside class="left-sidebar" style="background: #195fa5;">
     <!-- Sidebar scroll-->
     <div class="scroll-sidebar">
         <!-- User Profile-->
         <div class="user-profile">
             <div class="user-pro-body">
-                <div class="">
-                    <a href="{{ route('editAsesor',Auth()->user()->id) }}" class="u-dropdown link hide-menu text-white">
+                <div class="" style="    text-align: center;">
+                    <a href="{{ route('editAsesor',Auth()->user()->id) }}" class="u-dropdown text-center link hide-menu text-white">
                       {{Auth()->user()->name}}
                     </a>
                 </div>

@@ -11,7 +11,7 @@
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="/">Inicio</a></li>
               <li class="breadcrumb-item"><a href="/asesores">Gestion de Asesores</a></li>
-              <li class="breadcrumb-item activate"><a href="#">Editar Asesor</a></li>
+              <li class="breadcrumb-item activate"><a href="#">Editar {{Auth()->user()->name}}</a></li>
             </ol>
         </div>
       </div>

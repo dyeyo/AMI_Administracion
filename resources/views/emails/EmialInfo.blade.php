@@ -49,10 +49,10 @@
       </h3>
       @if ($idContrato == 2 )
       <a  style="background: #ec1a24; color: #fff; display: block; padding: 5px 25px; text-align: center; border-radius: 25px;font-size: 24px;text-decoration: none;width: 70%;margin: auto;"
-      href="{{$student['linkPago']}}https://payco.link/514351" target="_blank">Pagar Ahora</a>
+      href="{{$student['linkPago']}}" target="_blank">Pagar Ahora</a>
     @elseif ($idContrato == 3 )
       <a  style="background: #ec1a24; color: #fff; display: block; padding: 5px 25px; text-align: center; border-radius: 25px;font-size: 24px;text-decoration: none;width: 70%;margin: auto;"
-      href="{{$student['linkPago']}}https://payco.link/514354" target="_blank">Pagar Ahora</a>
+      href="{{$student['linkPago']}}" target="_blank">Pagar Ahora</a>
     @endif
       <h6 style="text-align: center;">
         <b>NOTA:</b>Por favor, no responder a este correo automático.

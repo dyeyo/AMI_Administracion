@@ -69,49 +69,51 @@
     <script src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.2.5/js/dataTables.responsive.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-    <script src="{{ asset('js/validacion.js') }}"></script><script type="text/javascript">
-  $(document).ready(function() {
-    $('.select2').select2({
-      allowClear: true,
-      placeholder: "Seleccione una opcion.."
-    });
-    $('.table').DataTable({ language:
-      {
-        sProcessing: "Procesando...",
-        sLengthMenu: "Mostrar _MENU_ registros",
-        sZeroRecords: "No se encontraron resultados",
-        sEmptyTable: "Ningún dato disponible en esta tabla",
-        sInfo:
-          "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-        sInfoEmpty: "Mostrando registros del 0 al 0 de un total de 0 registros",
-        sInfoFiltered: "(filtrado de un total de _MAX_ registros)",
-        sInfoPostFix: "",
-        sSearch: "Buscar:",
-        sUrl: "",
-        sInfoThousands: ",",
-        sLoadingRecords: "Cargando...",
-        oPaginate: {
-          sFirst: "Primero",
-          sLast: "Último",
-          sNext: "Siguiente",
-          sPrevious: "Anterior",
-        },
-        oAria: {
-          sSortAscending:
-            ": Activar para ordenar la columna de manera ascendente",
-          sSortDescending:
-            ": Activar para ordenar la columna de manera descendente",
-        },
+    <script src="{{ asset('js/validacion.js') }}"></script>
+    <script src="{{ asset('js/functions.js') }}"></script>
+
+    <script type="text/javascript">
+    $(document).ready(function() {
+      $('.select2').select2({
+        allowClear: true,
+        placeholder: "Seleccione una opcion.."
+      });
+      $('.table').DataTable({ language:
+        {
+          sProcessing: "Procesando...",
+          sLengthMenu: "Mostrar _MENU_ registros",
+          sZeroRecords: "No se encontraron resultados",
+          sEmptyTable: "Ningún dato disponible en esta tabla",
+          sInfo:
+            "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+          sInfoEmpty: "Mostrando registros del 0 al 0 de un total de 0 registros",
+          sInfoFiltered: "(filtrado de un total de _MAX_ registros)",
+          sInfoPostFix: "",
+          sSearch: "Buscar:",
+          sUrl: "",
+          sInfoThousands: ",",
+          sLoadingRecords: "Cargando...",
+          oPaginate: {
+            sFirst: "Primero",
+            sLast: "Último",
+            sNext: "Siguiente",
+            sPrevious: "Anterior",
+          },
+          oAria: {
+            sSortAscending:
+              ": Activar para ordenar la columna de manera ascendente",
+            sSortDescending:
+              ": Activar para ordenar la columna de manera descendente",
+          },
+        }
+      });
+      let alerta = $(".close").length;
+      if (alerta == 1) {
+        setTimeout(function () {
+          $(".alert-success").fadeOut(1500);
+        }, 3000);
       }
     });
-    let alerta = $(".close").length;
-    if (alerta == 1) {
-      setTimeout(function () {
-        $(".alert-success").fadeOut(1500);
-      }, 3000);
-    }
-
-  });
   </script>
 
 

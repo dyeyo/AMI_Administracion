@@ -28,10 +28,10 @@
   @foreach ($templateEmails as $item)
     <div class="contenedor" style="width: 650px; background: #fff; margin: auto;">
       <h3 style="text-align: center;">{{ $client->name }} Gracias por elegirnos.</h3>
-      <img style='display: block; width: 100%; padding-bottom: 40px;' src='{{ asset('assets/img/01.png') }}'>
-      <img style='display: block; width: 100%; padding-bottom: 40px;' src='{{ asset('assets/img/02.png') }}'>
-      <img style='display: block; width: 100%; padding-bottom: 40px;' src='{{ asset('assets/img/03.png') }}'>
-      <img style='display: block; width: 100%; padding-bottom: 40px;' src='{{ asset('assets/img/04.png') }}'>
+      <img style='display: block; width: 100%; padding-bottom: 40px;' src='{{ asset('img/01.png') }}'>
+      <img style='display: block; width: 100%; padding-bottom: 40px;' src='{{ asset('img/02.png') }}'>
+      <img style='display: block; width: 100%; padding-bottom: 40px;' src='{{ asset('img/03.png') }}'>
+      <img style='display: block; width: 100%; padding-bottom: 40px;' src='{{ asset('img/04.png') }}'>
       <p>{{$item->firstText}}</p>
       <img src="{{asset('images/'.$item->image)}}" style="width: 50%" alt="">
       <h3 style="text-align: center;">Proceso de Matrícula</h3>
@@ -50,9 +50,7 @@
          <h3 style="text-align: center;">
         Desde el siguiente link puedes hacer tu pago
       </h3>
-      {{-- <a  style="background: #ec1a24; color: #fff; display: block; padding: 5px 25px; text-align: center; border-radius: 25px;font-size: 24px;text-decoration: none;width: 70%;margin: auto;"
-         href="https://payco.link/514367" target="_blank">Pagar Ahora</a> --}}
-      <a  style="background: #ec1a24; color: #fff; display: block; padding: 5px 25px; text-align: center; border-radius: 25px;font-size: 24px;text-decoration: none;width: 70%;margin: auto;"
+     <a style="background: #ec1a24; color: #fff; display: block; padding: 5px 25px; text-align: center; border-radius: 25px;font-size: 24px;text-decoration: none;width: 70%;margin: auto;"
          href="{{$student['linkPago']}}" target="_blank">Pagar Ahora</a>
       <h6 style="text-align: center;">
         <b>NOTA:</b>Por favor, no resp|onder a este correo automático.

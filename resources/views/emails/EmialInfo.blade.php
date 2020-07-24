@@ -33,7 +33,7 @@
       <img style='display: block; width: 100%; padding-bottom: 40px;' src='{{ asset('img/02.png') }}'>
       <p>{{$item->firstText}}</p>
       <img src="{{asset('images/'.$item->image)}}" style="width: 50%" alt="">
-      <h3 style="text-align: center;">Proceso de Matrícula {{$student['linkPago']}}</h3>
+      <h3 style="text-align: center;">Proceso de Matrícula </h3>
       <a  style="
         background: #ec1a24;
         color: #fff;

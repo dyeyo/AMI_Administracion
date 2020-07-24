@@ -21,7 +21,14 @@ function dataClient() {
     $("#email").val(data[0].email);
   });
 }
-
+function dataTemplateEmailSendContractAsesor() {
+  var tipoContrato = $("#tipoContrato").val();
+  $.getJSON(route("loadTemplate", { id: tipoContrato }), function (data) {
+    console.log(data[0].link);
+    $("#idtemplate").val(data[0].emailId);
+    $("#link").val(data[0].link);
+  });
+}
 function dataClientEmial() {
   var datoCliente = $(".datoClienteEmail").val();
   $.getJSON(route("loadClientSendEmail", { id: datoCliente }), function (data) {
@@ -35,7 +42,7 @@ function dataTemplateEmailSendContract() {
   var tipoContrato = $("#tipoContrato").val();
   if (tipoContrato != 0) {
     $.getJSON(route("loadTemplate", { id: tipoContrato }), function (data) {
-      console.log(data);
+      console.log(data[0].link);
       $("#idtemplate").val(data[0].emailId);
       $("#link").val(data[0].link);
     });

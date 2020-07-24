@@ -27,8 +27,10 @@ Route::group(['middleware' => ['auth']], function () {
   Route::post('/seguimiento/crear',  'ClientsController@storeTracing')->name('storeTracing');
   Route::get('/loadClients/{id}',  'HomeController@loadClient')->name('loadClient');
   Route::get('/loadClientSendEmail/{id}',  'HomeController@loadClientSendEmail')->name('loadClientSendEmail');
+  Route::get('/loadClientSendEmail/{id}',  'HomeController@loadClientSendEmail2')->name('loadClientSendEmail2');
   Route::post('/clientes/crear', 'ClientsController@store')->name('createClient');
-  Route::get('/correo/template/promocion/{id}', 'EmailsController@loadTemplatePromotion')->name('loadTemplatePromotion');
+  Route::get('/correo/template/{id}', 'EmailsController@loadTemplate')->name('loadTemplate');
+
 
   Route::group(['middleware' => ['admin']], function () {
     //EMIALS
@@ -37,7 +39,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/editar_plantilla/{id}', 'EmailsController@editPlantilla')->name('editPlantilla');
     Route::put('/actualziar_plantilla/{id}', 'EmailsController@updatePlantilla')->name('updatePlantilla');
     Route::delete('/correo/{id}', 'EmailsController@destroy')->name('deleteEmail');
-    Route::get('/correo/template/{id}', 'EmailsController@loadTemplate')->name('loadTemplate');
 
     //CONTRATOS
     Route::get('/contratos', 'ContractController@index')->name('contracs');

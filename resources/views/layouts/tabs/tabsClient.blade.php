@@ -62,7 +62,7 @@
           </div>
           <div class="form-group">
             <label>Tipo de Contrato</label>
-            <select class="form-control select2" onchange="dataTemplateEmailSendContract()" style="width: 100%" name="tipoContrato" id="tipoContrato">
+            <select class="form-control select2" onchange="dataTemplateEmailSendContractAsesor()" style="width: 100%" name="tipoContrato" id="tipoContrato">
               <option value=""></option>
               @foreach ($contracts as $contract)
                 <option value="{{$contract->id}}">{{$contract->title}}</option>
@@ -119,4 +119,11 @@
     </div>
   </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.1.1.min.js" defer></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js">
+<script>
+  $(document).ready(function() {
+    $('.table').DataTable();
+} );
+</script>

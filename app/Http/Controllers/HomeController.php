@@ -50,7 +50,7 @@ class HomeController extends Controller
     $allClients = Clients::where('pay', null)->get();
     $allClientsPromocion = Clients::where('pay', 'SI')->get();
     $allClientsAsesor = Clients::with('asesor')
-      ->where('pay', '!=', null)
+      ->where('pay', 'SI')
       ->where('asesorId', Auth()->user()->id)
       ->get();
     return view('home', compact(
@@ -73,6 +73,7 @@ class HomeController extends Controller
 
   public function sendinfopay(Request $request)
   {
+
     if ($request->email) {
       if ($request->tipoContrato == "1") {
         Mail::to($request->email)->send(new LectorAmiContado());
@@ -99,6 +100,10 @@ class HomeController extends Controller
   }
 
   public function loadClientSendEmail($id)
+  {
+    return response()->json(Clients::where('id', $id)->get());
+  }
+  public function loadClientSendEmail2($id)
   {
     return response()->json(Clients::where('id', $id)->get());
   }

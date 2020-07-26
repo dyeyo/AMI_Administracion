@@ -76,6 +76,20 @@ class ContractController extends Controller
     $client->terminosCusro = $request->terminosCusro;
     $client->asesorId  = $request->asesorId;
     $client->titleContract  = $request->titleContract;
+    $client->ocupacion  = $request->ocupacion;
+    $client->empresa  = $request->empresa;
+    $client->domicilio  = $request->domicilio;
+    $client->cargo  = $request->cargo;
+    $client->celular  = $request->celular;
+    $client->ingresoMes  = $request->ingresoMes;
+    $client->nombreRef  = $request->nombreRef;
+    $client->identificacionRef  = $request->identificacionRef;
+    $client->ocupacionRef  = $request->ocupacionRef;
+    $client->fechaNacRef  = $request->fechaNacRef;
+    $client->nombreRef2  = $request->nombreRef2;
+    $client->identificacionRef2  = $request->identificacionRef2;
+    $client->ocupacionRef2  = $request->ocupacionRef2;
+    $client->fechaNacRef2  = $request->fechaNacRef2;
     $client->update();
 
     Mail::to($request->email)->send(new  SendMailContractClient());

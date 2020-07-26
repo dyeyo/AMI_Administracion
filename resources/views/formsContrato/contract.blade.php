@@ -50,19 +50,49 @@
             />
           </div>
           <div class="form-group">
-            <label>Ciudad</label>
+            <label>Ocupación</label>
+            <input
+              type="text"
+              class="form-control"
+              name="ocupacion"
+              id="ocupacion"
+              placeholder="Ocupación"
+            />
+          </div>
+          <div class="form-group">
+            <label>Nombre de la Empresa</label>
+            <input
+              type="text"
+              class="form-control"
+              name="empresa"
+              id="empresa"
+              placeholder="Empresa"
+            />
+          </div>
+          <div class="form-group">
+            <label>Direccion</label>
             <input
               type="text"
               value="{{decrypt($_GET["city"])}}"
               class="form-control"
               name="city"
               id="city"
-              placeholder="Ciudad"
+              placeholder="Direccion"
             />
           </div>
           <div class="form-group">
-            <label>Colegio/Universidad</label>
-            <input type="text" class="form-control" name="scholl" id="scholl" placeholder="Colegio o Universidad" />
+            <label>Domicilio</label>
+            <input
+              type="text"
+              class="form-control"
+              name="domicilio"
+              id="domicilio"
+              placeholder="Domicilio"
+            />
+          </div>
+          <div class="form-group">
+            <label>Cargo</label>
+            <input type="text" class="form-control" name="cargo" id="cargo" placeholder="Cargo" />
           </div>
           <div class="form-group">
             <label>Teléfono</label>
@@ -76,6 +106,26 @@
             />
           </div>
           <div class="form-group">
+            <label>Celular</label>
+            <input
+              type="text"
+              class="form-control"
+              name="celular"
+              id="celular"
+              placeholder="Celular"
+            />
+          </div>
+          <div class="form-group">
+            <label>Ingreso Mensual</label>
+            <input
+              type="text"
+              class="form-control"
+              name="ingresoMes"
+              id="ingresoMes"
+              placeholder="Ingreso Mensual"
+            />
+          </div>
+          <div class="form-group">
             <label>Correo Electrónico</label>
             <input
               type="email"
@@ -86,6 +136,93 @@
               placeholder="Correo Electronico"
             />
           </div>
+          <hr>
+          <h2>Referencias</h2>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Nombre</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="nombreRef"
+                  id="nombreRef"
+                  placeholder="Nombre"
+                />
+              </div>
+              <div class="form-group">
+                <label>Numero de Idenficication</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="identificacionRef"
+                  id="identificacionRef"
+                  placeholder="Idenficication"
+                />
+              </div>
+              <div class="form-group">
+                <label>Ocupación</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="ocupacionRef"
+                  id="ocupacionRef"
+                  placeholder="Ocupación"
+                />
+              </div>
+              <div class="form-group">
+                <label>Fecha de Nacimiento</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  name="fechaNacRef"
+                  id="fechaNacRef"
+                />
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Nombre</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="nombreRef2"
+                  id="nombreRef2"
+                  placeholder="Nombre"
+                />
+              </div>
+              <div class="form-group">
+                <label>Numero de Idenficication</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="identificacionRef2"
+                  id="identificacionRef2"
+                  placeholder="Idenficication"
+                />
+              </div>
+              <div class="form-group">
+                <label>Ocupación</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="ocupacionRef2"
+                  id="ocupacionRef2"
+                  placeholder="Ocupación"
+                />
+              </div>
+              <div class="form-group">
+                <label>Fecha de Nacimiento</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  name="fechaNacRef2"
+                  id="fechaNacRef2"
+                />
+              </div>
+            </div>
+          </div>
+
           <div class="form-check">
             <input
               onchange="contrato()"
@@ -171,6 +308,18 @@
                   <p class="textoContrato">*Por firma electrónica a las {{$date_now_hours}} </p>
                 @endforeach
               </div>
+            </div>
+          </div>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <b>GARANTÍA AMI PROFESIONAL Y AMI SEMIPROFESIONAL: LECTOR AMI COLOMBIA </b> dará al beneficiario asesoría especializada durante 4 meses a partir de la fecha en
+              que se inicien las asesorías, el alumno se compromete a realizar las prácticas que el profesional le estipule, al igual asistir dos veces por semana una hora por cada clase para
+              recibir sus asesoría. Esto es importante para poder garantizar el resultado de las habilidades antes mencionadas. En caso de no lograr las habilidades en el tiempo estipulado,
+              podrá continuar con las asesorías hasta que desarrolle la habilidad teniendo como máximo 4 meses adicionales sin incremento en el pago. Nota: Solo si la persona cumple con
+              las condiciones del programa. Asistir dos veces por semana y realizar las practicas que la monitora indique. Es importante mencionar que los pagos de cuota inicial y mensual
+              dados no se pueden suspender bajo ninguna circunstancia. No se aceptan devoluciones. Una vez iniciado, debe cancelar la totalidad del programa asista ó no, es su
+              responsabilidad. GARANTÍAAMI KIDS: Este programa tiene una duración de 10 meses completos, en caso de no culminar los objetivos planteados en el formato de verificación
+              se otorgarán 2 meses adicionales para la finalización del mismo siempre y cuando haya cumplido con las condiciones establecidas.
             </div>
           </div>
           <textarea name="contract" style="display: none;" id="contract"></textarea>
